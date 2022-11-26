@@ -1,0 +1,2 @@
+- css component/responsive : https://youtu.be/rrLAg7xNERA
+- 

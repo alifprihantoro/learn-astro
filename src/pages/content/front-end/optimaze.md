@@ -1,0 +1,11 @@
+- description
+- tag head content
+- content pertama/utama
+- alt
+- semantic
+- robot.txt
+- list.xml
+- lazy load
+- cek speed
+- script load terakhir
+- pwa

@@ -1,0 +1,9 @@
+- [ ] setup :
+  - [ ] cli
+  - [ ] nvim
+  - [ ] react js (use cra)
+  - [ ] next js
+  - [ ] gatsby js
+  - [ ] global npm
+  - [ ] npm module
+- [ ] tutorial sepsifik
