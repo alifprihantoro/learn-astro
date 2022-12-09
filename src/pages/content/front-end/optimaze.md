@@ -1,11 +1,15 @@
 - description
-- tag head content
+- tag head content header, nav
 - content pertama/utama
-- alt
+- alt, name, indexof, 
 - semantic
 - robot.txt
 - list.xml
-- lazy load
+- lazy load img,video
 - cek speed
-- script load terakhir
+- script load terakhir inline
 - pwa
+- font src=''
+- split css
+- js split
+- lazy import (script)

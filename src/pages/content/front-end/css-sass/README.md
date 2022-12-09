@@ -1,2 +1,2 @@
 - css component/responsive : https://youtu.be/rrLAg7xNERA
-- 
+- truncate/oberflow => titik tiga... atau bisa pakai https://css-tricks.com/almanac/properties/l/line-clamp/
