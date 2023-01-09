@@ -1,0 +1,7 @@
+- accesibility testing
+- story book
+- https://playwright.dev/
+- jest
+- jasmine
+- mock api (fake api)
+- test speed

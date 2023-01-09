@@ -1,0 +1,4 @@
+- cms :
+  - strapi
+  - wordpress
+  - gost
