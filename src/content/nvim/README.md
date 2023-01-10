@@ -6,3 +6,4 @@
 - [get name of syntax](get name of syntax)
 - tsquery hilight
 - [fold by tresitter](fold by tresitter)
+- [split table](split table)
