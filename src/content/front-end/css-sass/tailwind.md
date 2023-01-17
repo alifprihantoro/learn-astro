@@ -1,0 +1,1 @@
+- https://redpixelthemes.com/blog/tailwindcss-generate-all-classes/
