@@ -1,18 +1,3 @@
 ---
-const posts = await Astro.glob("../posts/**/*.md");
-const posts_replace = posts.map((post) => {
-  const slug = post.file
-    .replace(/.+\/posts\//i, "")
-    .replace(/\/readme.md/i, "")
-    .replace(/.md/i, "")
-    .replace(/\s/ig, "-")
-  const title = slug.replace(/.*\//i, "");
-  return { slug, title };
-});
 ---
-
-{
-  posts_replace.map(({ slug, title }) => {
-    return <a href={slug}>{title}</a><br/>;
-  })
-}
+<h1>hello world</h1>

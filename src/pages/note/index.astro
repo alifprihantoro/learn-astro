@@ -1,0 +1,22 @@
+---
+import pathMd2Url from "@utils/pathMd2Url";
+import { POST } from "@configs/path";
+
+const posts = await Astro.glob(POST);
+const posts_replace = posts.map((post) => {
+  const slug = pathMd2Url(post.file);
+  const title = slug.replace(/.*\//i, "");
+  return { slug, title };
+});
+---
+
+{
+  posts_replace.map(({ slug, title }) => {
+    return (
+      <>
+        <a href={slug}>{title}</a>
+        <br />
+      </>
+    );
+  })
+}

@@ -1,21 +1,19 @@
 ---
+import pathMd2Url from '@utils/pathMd2Url'
+import { POST } from '@configs/path'
+
 export async function getStaticPaths() {
-  const posts = await Astro.glob("../posts/**/*.md");
+  const posts = await Astro.glob('../' + POST)
   return posts.map((post) => {
-    const slug = post.file
-    .replace(/.+\/posts\//i, "")
-    .replace(/\/readme.md/i, "")
-    .replace(/.md/i, "")
-    .replace(/\s/ig, "-")
-    const title = slug.replace(/.*\//i, "");
-    const Content = post.Content;
+    const slug = pathMd2Url(post.file)
+    const title = slug.replace(/.*\//i, '')
+    const Content = post.Content
     return {
       params: { slug },
       props: { title, Content },
-    };
-  });
+    }
+  })
 }
-
 const { title, Content } = Astro.props;
 ---
 
