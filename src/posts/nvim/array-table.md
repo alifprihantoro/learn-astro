@@ -1,4 +1,6 @@
 ## add table/array
+
+> hello hai
 ```lua
 local tes = { "hello", "hai", "ok"}
 ```

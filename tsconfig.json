@@ -11,7 +11,7 @@
       ],
       "@utils/*": [
         "src/utils/*"
-      ]
+      ],
       "@configs/*": [
         "src/configs/*"
       ]
