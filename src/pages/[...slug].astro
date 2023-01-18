@@ -1,0 +1,30 @@
+---
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../posts/**/*.md");
+  return posts.map((post) => {
+    const slug = post.file
+    .replace(/.+\/posts\//i, "")
+    .replace(/\/readme.md/i, "")
+    .replace(/.md/i, "")
+    .replace(/\s/ig, "-")
+    const title = slug.replace(/.*\//i, "");
+    const Content = post.Content;
+    return {
+      params: { slug },
+      props: { title, Content },
+    };
+  });
+}
+
+const { title, Content } = Astro.props;
+---
+
+<html>
+  <head>
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{title}</h1>
+    <Content />
+  </body>
+</html>
