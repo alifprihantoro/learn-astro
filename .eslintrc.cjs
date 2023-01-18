@@ -15,7 +15,7 @@ module.exports = {
   },
   'plugins': ['@typescript-eslint'],
   'rules': {
-    'comma-dangle': ['error', 'only-multiline'],
+    'comma-dangle': ['error', 'always-multiline'],
     'prefer-template': ['error'],
     'no-multi-spaces': ['error', { ignoreEOLComments: false }],
     'no-multiple-empty-lines': ['error', { max: 1 }],
@@ -35,6 +35,8 @@ module.exports = {
       'error',
       'never',
     ],
+    'no-console': ['error'],
+    'no-alert': ['error'],
   },
   overrides: [
     {
