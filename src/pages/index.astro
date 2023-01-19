@@ -1,11 +1,15 @@
 ---
 import Main from '@layouts/Main'
-import {SEO} from '@configs/home'
+import { SEO } from '@configs/home'
+import Nav from '@components/nav'
+import type { LIST_NAV } from '@Mytypes/nav'
+
+const LIST = {} as LIST_NAV[]
 ---
 
 <Main SEO={SEO}>
-  <!-- nav -->
-  <!-- header -->
+  <Nav LIST={LIST} />
+  <!-- hero el -->
   <!-- content -->
   <!-- footer -->
 </Main>

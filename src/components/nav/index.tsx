@@ -1,10 +1,17 @@
 import type { LIST_NAV } from '@Mytypes/nav'
+import HeaderNav from './header'
 import NavList from './list'
 
-export default function Nav(LIST: LIST_NAV[]) {
+interface props {
+  LIST: LIST_NAV[]
+}
+export default function Nav({ LIST }: props) {
   return (
     <>
-      <NavList LIST={LIST} />
+      <nav>
+        <HeaderNav/>
+        <NavList LIST={LIST} />
+      </nav>
     </>
   )
 }
