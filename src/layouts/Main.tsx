@@ -1,5 +1,5 @@
 import type { seo } from '@Mytypes/Seo'
-import Seo from './Seo'
+import Seo from '@layouts/Seo'
 
 interface props {
   SEO: seo
@@ -14,7 +14,7 @@ export default function Main(props: props) {
       </head>
       <body>
         {children}
-        {/*script */}
+        {/* script */}
       </body>
     </html>
   )
