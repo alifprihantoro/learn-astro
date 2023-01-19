@@ -1,6 +1,6 @@
 import type { PROPS_SEO } from '@Mytypes/Seo'
 
-export default function Seo({seo}: PROPS_SEO) {
+export default function Seo({ seo }: PROPS_SEO) {
   const { TITLE, LINK, IMG, DATE_CONTENT, PAGENATION } = seo
   const SITE_NAME = ''
   const SITE_TITLE = `${SITE_NAME} | ${TITLE}`
