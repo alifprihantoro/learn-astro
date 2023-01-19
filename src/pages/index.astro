@@ -2,6 +2,9 @@
 import Main from '@layouts/Main'
 import { SEO } from '@configs/home'
 import Nav from '@components/nav'
+import HeroElement from '@components/heroElement'
+import Footer from '@components/footer'
+import ContentHome from '@layouts/home/content'
 import type { LIST_NAV } from '@Mytypes/nav'
 
 const LIST = {} as LIST_NAV[]
@@ -9,7 +12,7 @@ const LIST = {} as LIST_NAV[]
 
 <Main SEO={SEO}>
   <Nav LIST={LIST} />
-  <!-- hero el -->
-  <!-- content -->
-  <!-- footer -->
+  <HeroElement />
+  <ContentHome />
+  <Footer />
 </Main>
