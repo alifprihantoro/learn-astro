@@ -14,7 +14,7 @@ module.exports = {
     'sourceType': 'module',
   },
   'plugins': ['@typescript-eslint'],
-  'rules': {
+  rules: {
     'comma-dangle': ['error', 'always-multiline'],
     'prefer-template': ['error'],
     'no-multi-spaces': ['error', { ignoreEOLComments: false }],
@@ -35,10 +35,23 @@ module.exports = {
       'error',
       'never',
     ],
-    'no-console': ['error'],
-    'no-alert': ['error'],
+    'no-console': ['warn'],
+    'no-alert': ['warn'],
   },
   overrides: [
+    {
+      files: ['**/*.tsx'],
+      'extends': [
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'plugin:@typescript-eslint/recommended',
+      ],
+      'plugins': ['react'],
+      rules: {
+        'react/react-in-jsx-scope': 0,
+        'react/jsx-uses-react': 0,
+      },
+    },
     {
       files: ['*.astro'],
       parser: 'astro-eslint-parser',
