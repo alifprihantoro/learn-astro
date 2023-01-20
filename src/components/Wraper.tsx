@@ -8,11 +8,11 @@ interface props {
 export default function Main(props: props) {
   const { SEO, children } = props
   return (
-    <html lang='en'>
+    <html lang='en' data-theme="dracula">
       <head>
         <Seo seo={SEO} />
       </head>
-      <body>
+      <body className='container mx-auto'>
         {children}
         {/* script */}
       </body>

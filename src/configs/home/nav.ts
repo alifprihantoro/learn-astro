@@ -1,3 +1,5 @@
 export const NAV_LIST = [
-  { title: '', link: '' },
+  { title: 'home', link: '/' },
+  { title: 'about', link: '/about' },
+  { title: 'contact', link: '/contact' },
 ]
