@@ -1,5 +1,6 @@
 ---
 import pathMd2Url from '@utils/pathMd2Url'
+import ContentNote from '@layouts/notes/Conten'
 
 export async function getStaticPaths() {
   const posts = await Astro.glob('../../posts/**/*.md')
@@ -13,15 +14,9 @@ export async function getStaticPaths() {
     }
   })
 }
-const { title, Content } = Astro.props;
+const { title, Content } = Astro.props
 ---
 
-<html>
-  <head>
-    <title>{title}</title>
-  </head>
-  <body>
-    <h1>{title}</h1>
-    <Content />
-  </body>
-</html>
+<ContentNote title={title}>
+  <Content />
+</ContentNote>

@@ -1,9 +1,9 @@
 import type { seo } from '@Mytypes/Seo'
-import Seo from '@layouts/Seo'
+import Seo from '@components/Seo'
 
 interface props {
   SEO: seo
-  children: string | number | React.ReactElement | React.ReactElement[] | React.ReactFragment;
+  children: preact.JSX.Element[]
 }
 export default function Main(props: props) {
   const { SEO, children } = props

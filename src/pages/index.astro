@@ -1,18 +1,7 @@
 ---
-import Main from '@layouts/Main'
-import { SEO } from '@configs/home'
-import Nav from '@components/nav'
-import HeroElement from '@components/heroElement'
-import Footer from '@components/footer'
-import ContentHome from '@layouts/home/content'
-import type { LIST_NAV } from '@Mytypes/nav'
-
-const LIST = {} as LIST_NAV[]
+import Home from '@layouts/Home'
 ---
 
-<Main SEO={SEO}>
-  <Nav LIST={LIST} />
-  <HeroElement />
-  <ContentHome />
-  <Footer />
-</Main>
+<>
+  <Home />
+</>
