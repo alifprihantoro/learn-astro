@@ -1,8 +1,9 @@
 ---
 import Home from '@layouts/Home'
+import Wrapper from '@components/Wraper.astro'
+import { SEO } from '@configs/home'
 ---
 
-<>
-  <p>hello</p>
+<Wrapper SEO={SEO}>
   <Home />
-</>
+</Wrapper>

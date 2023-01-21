@@ -1,0 +1,13 @@
+---
+import Seo from '@components/Seo'
+const { SEO } = Astro.props
+---
+
+<html lang='en' data-theme='dracula'>
+  <head>
+    <Seo seo={SEO} />
+  </head>
+  <body class='container mx-auto'>
+    <slot />
+  </body>
+</html>

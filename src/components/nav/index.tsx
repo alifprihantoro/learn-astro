@@ -8,13 +8,18 @@ export default function Nav({ LIST }: props) {
   const LOGO = 'MuryP'
   return (
     <>
-      <nav className='md:navbar rounded-box bg-neutral text-neutral-content'>
+      <nav className='navbar rounded-box bg-neutral text-neutral-content'>
         <a className='btn btn-ghost normal-case text-xl'>{LOGO}</a>
-        <div className='fixed bottom-0 right-0 w-screen text-center'>
-          <ul className='m-auto w-fit menu menu-horizontal bg-base-100 rounded-box'>
+        <div className='max-sm:fixed max-sm:bottom-0 max-sm:right-0
+          max-sm:w-screen text-center sm:ml-auto sm:w-fit
+          sm:mr-0'>
+          <ul className='max-sm:bg-neutral w-fit menu menu-horizontal rounded-box m-auto'>
             <NavList LIST={LIST} />
           </ul>
         </div>
+        <ul className='max-sm:ml-auto max-sm:mr-0 w-fit'>
+          <li><button className="btn btn-primary">Button</button></li>
+        </ul>
       </nav>
     </>
   )
