@@ -8,7 +8,7 @@ export default function Nav({ LIST }: props) {
   const LOGO = 'MuryP'
   return (
     <>
-      <nav className='navbar rounded-box bg-neutral text-neutral-content max-w-4xl m-auto'>
+      <nav className='navbar rounded-box bg-base-300 text-neutral-content m-auto'>
         <a className='btn btn-ghost normal-case text-xl'>{LOGO}</a>
         <div className='max-sm:fixed max-sm:bottom-0 max-sm:right-0
           max-sm:w-screen text-center sm:ml-auto sm:w-fit

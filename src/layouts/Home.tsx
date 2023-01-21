@@ -8,6 +8,7 @@ export default function Home() {
     <>
       <Nav LIST={NAV_LIST} />
       <HeroElement />
+      <p>Amet esse facere harum odit eligendi? Soluta aperiam provident quas obcaecati odit reprehenderit. In in exercitationem debitis dolorum explicabo Beatae architecto doloribus minima nisi veritatis Repudiandae laborum nisi fugit repudiandae.</p>
       {/* content */}
       <Footer />
     </>
