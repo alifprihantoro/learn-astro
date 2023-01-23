@@ -1,11 +1,9 @@
-import type { LIST_NAV } from '@Mytypes/nav'
-interface props {
-  LIST: LIST_NAV[]
-}
-export default function NavList({ LIST }: props) {
+import { MAIN_NAV_LIST } from '@configs/nav'
+
+export default function NavList() {
   return (
     <>
-      {LIST.map(({ link, title }, i) => {
+      {MAIN_NAV_LIST.map(({ link, title }, i) => {
         return (
           <li key={i}>
             <a href={link}>
