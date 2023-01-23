@@ -10,7 +10,7 @@ export default function Home() {
       <Nav />
       <HeroElement />
       <div className="">
-        <h2>Project</h2>
+        <h2 className='font-bold text-4xl mx-5 my-5 border border-0 border-b-2'>Project</h2>
         <ListCardImg content={project} />
       </div>
       {/* contact | about */}
