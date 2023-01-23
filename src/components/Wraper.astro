@@ -1,11 +1,12 @@
 ---
 import Seo from '@components/Seo'
 const { SEO } = Astro.props
+const MODE = import.meta.env.NODE_ENV !== 'development'
 ---
 
 <html lang='en' data-theme='dracula'>
   <head>
-    <Seo seo={SEO} />
+    {MODE && <Seo seo={SEO} />}
   </head>
   <body class='container mx-auto bg-base-200'>
     <slot />
