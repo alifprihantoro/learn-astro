@@ -3,7 +3,7 @@ import pathMd2Url from '@utils/pathMd2Url'
 import Wrapper from '@components/Wraper.astro'
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob('../../posts/**/*.md')
+  const posts = await Astro.glob('../../posts/notes/**/*.md')
   return posts.map((post) => {
     const slug = pathMd2Url(post.file)
     const title = slug.replace(/.*\//i, '')
