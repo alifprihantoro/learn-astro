@@ -1,6 +1,5 @@
 ---
 import pathMd2Url from '@utils/pathMd2Url'
-import ContentNote from '@layouts/notes/Conten'
 import Wrapper from '@components/Wraper.astro'
 
 export async function getStaticPaths() {
@@ -26,7 +25,7 @@ const SEO = {
 ---
 
 <Wrapper SEO={SEO}>
-  <ContentNote>
+  <article class='prose m-5'>
     <Content />
-  </ContentNote>
+  </article>
 </Wrapper>
