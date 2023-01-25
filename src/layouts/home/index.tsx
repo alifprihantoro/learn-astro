@@ -15,7 +15,7 @@ export default function Home() {
         <AboutHome />
         <ContactHome />
       </div>
-      <div className="">
+      <div id='content' className="">
         <h2 className='font-bold text-4xl mx-5 my-5 border-b-2'>Project</h2>
         <ListCardImg content={project} />
       </div>

@@ -12,6 +12,11 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
     {MODE && <Seo seo={SEO} />}
   </head>
   <body class='container mx-auto bg-base-200'>
+    <a
+      href='#content'
+      tabindex='1'
+      class='btn opacity-0 focus:opacity-100 fixed'>Menuju ke konten</a
+    >
     <slot />
   </body>
 </html>
