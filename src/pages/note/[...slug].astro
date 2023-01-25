@@ -10,21 +10,22 @@ export async function getStaticPaths() {
     const Content = post.Content
     return {
       params: { slug },
-      props: { title, Content },
+      props: { title, Content, slug },
     }
   })
 }
 
-const { title, Content } = Astro.props
+const { title, Content, slug } = Astro.props
 const SEO = {
   TITLE: title,
-  LINK: '',
+  LINK: `/note/${slug}`,
   IMG: '',
-  DESCRIPTION: '',
+  DESCRIPTION: title,
 }
 ---
 
 <Wrapper SEO={SEO}>
+  <a href="/note" class='btn m-5'>back to list</a>
   <article class='prose m-5'>
     <Content />
   </article>
