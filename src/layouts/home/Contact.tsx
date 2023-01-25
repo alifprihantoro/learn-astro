@@ -11,7 +11,7 @@ export default function ContactHome() {
         {CONTACS.map(({ link, title, icon }, i) => {
           return (
             <li key={i} >
-              <a className='flex' href={link} alt={`link menuju ${title}`}>
+              <a className='flex hover:text-primary' href={link} alt={`link menuju ${title}`}>
                 <span className='mx-3'>{Icons[icon]}</span>
                 {title}
               </a>
