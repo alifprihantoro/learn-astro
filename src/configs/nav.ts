@@ -12,7 +12,8 @@ const MAIN_NAV_LIST = [
 ]
 const MAIN_NAV_LIST_DROPDOWN = [
   { title: 'blog', link: '/blog' },
-  { title: 'note', link: '/note' },
+  { title: 'note old', link: '/note' },
+  { title: 'note new', link: '/notes' },
   { title: 'github', link: '/github' },
 ]
 export { MAIN_NAV_LIST, MAIN_NAV_LIST_DROPDOWN }

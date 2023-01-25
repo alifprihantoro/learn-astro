@@ -18,14 +18,14 @@ export async function getStaticPaths() {
 const { title, Content, slug } = Astro.props
 const SEO = {
   TITLE: title,
-  LINK: `/note/${slug}`,
+  LINK: `/notes/${slug}`,
   IMG: '',
   DESCRIPTION: title,
 }
 ---
 
 <Wrapper SEO={SEO}>
-  <a href="/note" class='btn m-5'>back to list</a>
+  <a href="/notes" class='btn m-5'>back to list</a>
   <article class='prose m-5'>
     <Content />
   </article>
