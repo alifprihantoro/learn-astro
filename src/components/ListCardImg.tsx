@@ -10,7 +10,7 @@ export default function ListCardImg(list: list) {
         list.content.map(({ title, img, body, link }, i) => {
           return (
             <div key={i} className="card card-compact w-[90%] max-w-sm bg-base-100 shadow-xl m-5">
-              <figure><img className='w-full max-w-[300px] max-h-[250px]' src={img} alt="Shoes" /></figure>
+              <figure><img className='w-full object-cover h-48' src={img} alt="Shoes" /></figure>
               <div className="card-body">
                 <h2 className="card-title">{title}</h2>
                 <p>{body}</p>
