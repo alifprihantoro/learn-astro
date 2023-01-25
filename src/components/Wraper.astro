@@ -1,6 +1,8 @@
 ---
 import Seo from '@components/Seo'
 import '../style/svg.scss'
+import Nav from '@components/nav'
+import Footer from '@components/footer'
 const { SEO } = Astro.props
 const MODE = import.meta.env.NODE_ENV !== 'development'
 ---
@@ -18,6 +20,8 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
       tabindex='1'
       class='btn opacity-0 focus:opacity-100 fixed'>Menuju ke konten</a
     >
+    <Nav />
     <slot />
+    <Footer />
   </body>
 </html>
