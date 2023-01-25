@@ -6,9 +6,9 @@
 * dropdown : specific for post/note/home
 */
 const MAIN_NAV_LIST = [
-  { title: 'home', link: '#' },
-  { title: 'about', link: '#about' },
-  { title: 'contact', link: '#contact' },
+  { title: 'home', link: '#', icon: 'Home' },
+  { title: 'about', link: '#about', icon: 'About' },
+  { title: 'contact', link: '#contact', icon: 'Telp' },
 ]
 const MAIN_NAV_LIST_DROPDOWN = [
   { title: 'blog', link: '/blog' },
