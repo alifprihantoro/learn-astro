@@ -7,7 +7,7 @@ export default function NavList() {
       {MAIN_NAV_LIST.map(({ link, title, icon }, i) => {
         return (
           <li key={i}>
-            <a className='max-md:block' href={link}>
+            <a className='max-md:block' href={link} alt={`link menuju ${title}`}>
               <div className='w-fit m-auto'>
                 {Icons[icon]}
               </div>

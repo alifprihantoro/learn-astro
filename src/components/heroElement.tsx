@@ -6,8 +6,8 @@ export default function HeroElement() {
     <div className="hero min-h-screen">
       <div className="hero-content text-center">
         <div className="max-w-md">
-          <h2 className="text-5xl font-bold">{title}</h2>
-          <p className="py-6">{paragraph}</p>
+          <h2 className="text-5xl font-bold" tabIndex={0} >{title}</h2>
+          <p className="py-6" tabIndex={0} >{paragraph}</p>
           <button className="btn btn-primary">
             <a href={btn.link}>{btn.title}</a>
           </button>
