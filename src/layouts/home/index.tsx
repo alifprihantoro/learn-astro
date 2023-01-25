@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Nav />
       <HeroElement />
-      <div className="flex">
+      <div className="md:flex">
         <AboutHome />
         <ContactHome />
       </div>
