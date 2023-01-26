@@ -1,5 +1,6 @@
 ---
 import Wrapper from '@components/Wraper.astro'
+import HeaderBlog from '@layouts/blog/Header'
 import getBlogMd from '@utils/getBlogMd'
 
 export async function getStaticPaths() {
@@ -14,14 +15,18 @@ export async function getStaticPaths() {
         : frontmatter.slug
     const DESCRIPTION = frontmatter.description
     const Content = post.Content
+    let AUTHOR = frontmatter.author
+    AUTHOR =
+      AUTHOR === undefined ? { name: 'Alief Prihantoro', uri: '#' } : AUTHOR
+    const DATE = frontmatter.date
     return {
       params: { slug },
-      props: { TITLE, Content, SLUG: slug, DESCRIPTION },
+      props: { TITLE, Content, slug, DESCRIPTION, AUTHOR, DATE },
     }
   })
 }
 
-const { TITLE, Content, slug, DESCRIPTION } = Astro.props
+const { TITLE, Content, slug, DESCRIPTION, AUTHOR, DATE } = Astro.props
 const SEO = {
   TITLE: TITLE,
   LINK: `/notes/${slug}`,
@@ -31,7 +36,7 @@ const SEO = {
 ---
 
 <Wrapper SEO={SEO}>
-  <a href='/blog' class='btn m-5'>back to list</a>
+  <HeaderBlog TITLE={TITLE} slug={slug} AUTHOR={AUTHOR} DATE={DATE} />
   <article class='prose m-5'>
     <Content />
   </article>
