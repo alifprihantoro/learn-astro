@@ -1,0 +1,38 @@
+---
+import Wrapper from '@components/Wraper.astro'
+import getBlogMd from '@utils/getBlogMd'
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../posts/blog/**/*.md')
+  return posts.map((post) => {
+    const frontmatter = post.frontmatter
+    const TITLE = frontmatter.title
+    let slug = frontmatter.slug
+    slug =
+      slug === undefined || slug === false
+        ? getBlogMd(post.file)
+        : frontmatter.slug
+    const DESCRIPTION = frontmatter.description
+    const Content = post.Content
+    return {
+      params: { slug },
+      props: { TITLE, Content, SLUG: slug, DESCRIPTION },
+    }
+  })
+}
+
+const { TITLE, Content, slug, DESCRIPTION } = Astro.props
+const SEO = {
+  TITLE: TITLE,
+  LINK: `/notes/${slug}`,
+  IMG: '',
+  DESCRIPTION: TITLE + DESCRIPTION,
+}
+---
+
+<Wrapper SEO={SEO}>
+  <a href='/blog' class='btn m-5'>back to list</a>
+  <article class='prose m-5'>
+    <Content />
+  </article>
+</Wrapper>
