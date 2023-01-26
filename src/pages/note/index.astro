@@ -1,0 +1,29 @@
+---
+import Wraper from '@components/Wraper.astro'
+import { SEO } from '@configs/home'
+
+const posts = await Astro.glob('../../posts/note/**/*.md')
+const postsReplace = posts.map((post) => {
+  const frontmatter = post.frontmatter
+  const TITLE = frontmatter.title
+  const SLUG = frontmatter.slug
+  console.log(SLUG)
+  return { TITLE, SLUG }
+})
+---
+
+<Wraper SEO={SEO}>
+  <main class='flex flex-wrap mx-10'>
+    {
+      postsReplace.map(({ SLUG, TITLE }) => {
+        return (
+          <div class='bg-base-300 m-5 py-3 px-5 rounded-md w-fit'>
+            <h2 class='card-title'>
+              <a href={`./note/${SLUG}`}>{TITLE}</a>
+            </h2>
+          </div>
+        )
+      })
+    }
+  </main>
+</Wraper>
