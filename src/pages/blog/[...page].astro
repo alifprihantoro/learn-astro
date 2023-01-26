@@ -1,0 +1,50 @@
+---
+import Wraper from '@components/Wraper.astro'
+import { SEO } from '@configs/home'
+import getBlogMd from '@utils/getBlogMd'
+
+export async function getStaticPaths({ paginate }) {
+  const posts = await Astro.glob('../../posts/blog/**/*.md')
+  const postsReplace = posts.map((post) => {
+    const frontmatter = post.frontmatter
+    const TITLE = frontmatter.title
+    let slug = frontmatter.slug
+    slug =
+      slug === undefined || slug === false
+        ? getBlogMd(post.file)
+        : frontmatter.slug
+    return { TITLE, slug }
+  })
+  // Return a paginated collection of paths for all posts
+  return paginate(postsReplace, { pageSize: 5 })
+}
+
+// If set up correctly, The page prop now has everything that
+// you need to render a single page (see next section).
+const { page } = Astro.props
+---
+
+<Wraper SEO={SEO}>
+  <main class='flex flex-wrap mx-10'>
+    <p>total article {page.total}</p>
+    {
+      page.data.map(({ slug, TITLE }) => {
+        return (
+          <div class='bg-base-300 m-5 py-3 px-5 rounded-md w-fit'>
+            <h2 class='card-title'>
+              <a href={`./blog/${slug}`}>{TITLE}</a>
+            </h2>
+          </div>
+        )
+      })
+    }
+    <div>
+      <a class='btn' href='/blog'>First Page</a>
+      <a class='btn' href={page.url.prev}>prev</a>
+      <div class='btn'>current page : {page.currentPage}</div>
+      <div class='btn'>total page : {page.lastPage}</div>
+      <a class='btn' href={page.url.next}>next</a>
+      <a class='btn' href={`/blog/${page.lastPage}`}>Last Page</a>
+    </div>
+  </main>
+</Wraper>
