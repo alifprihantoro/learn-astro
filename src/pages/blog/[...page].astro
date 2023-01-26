@@ -2,18 +2,21 @@
 import Wraper from '@components/Wraper.astro'
 import { SEO } from '@configs/home'
 import getBlogMd from '@utils/getBlogMd'
+import '../../style/list.scss'
 
 export async function getStaticPaths({ paginate }) {
   const posts = await Astro.glob('../../posts/blog/**/*.md')
   const postsReplace = posts.map((post) => {
     const frontmatter = post.frontmatter
     const TITLE = frontmatter.title
+    const DATE = frontmatter.date
+    const LAST_MOD = frontmatter.lastmod
     let slug = frontmatter.slug
     slug =
       slug === undefined || slug === false
         ? getBlogMd(post.file)
         : frontmatter.slug
-    return { TITLE, slug }
+    return { TITLE, slug, DATE, LAST_MOD }
   })
   // Return a paginated collection of paths for all posts
   return paginate(postsReplace, { pageSize: 5 })
@@ -22,29 +25,84 @@ export async function getStaticPaths({ paginate }) {
 // If set up correctly, The page prop now has everything that
 // you need to render a single page (see next section).
 const { page } = Astro.props
+console.log(page)
+const { url, lastPage, currentPage, total } = page
 ---
 
 <Wraper SEO={SEO}>
   <main class='flex flex-wrap mx-10'>
-    <p>total article {page.total}</p>
-    {
-      page.data.map(({ slug, TITLE }) => {
-        return (
-          <div class='bg-base-300 m-5 py-3 px-5 rounded-md w-fit'>
-            <h2 class='card-title'>
-              <a href={`./blog/${slug}`}>{TITLE}</a>
-            </h2>
-          </div>
+    <h2 class='font-bold text-4xl mx-5 my-5 border-b-2 w-full'>Blog</h2>
+    <div class='alert alert-info shadow-lg'>
+      <div>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 24 24'
+          class='stroke-current flex-shrink-0 w-6 h-6'
+        ><path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+          ></path></svg
+        >
+        <span>
+          Terdapat "{page.total}" Postingan dari Blog yang bisa kalian baca dan
+          komentari.
+        </span>
+      </div>
+    </div>
+    <div class='myread'>
+      {
+        page.data.map(({ slug, TITLE, DATE }) => {
+          const MyDate = new Date(DATE)
+          return (
+            <a href={`/blog/${slug}`}>
+              <div class='content'>
+                <span class='date'>
+                  <span class='day'>{MyDate.getDay()}</span>
+                  <span class='rest'>
+                    {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
+                      MyDate,
+                    )}
+                    <br />
+                    {MyDate.getFullYear()}
+                  </span>
+                </span>
+                <h3 class='readMore'>{TITLE}</h3>
+              </div>
+            </a>
+          )
+        })
+      }
+    </div>
+    <div class="w-fit m-auto text-center leading-[4rem]">
+      {
+        currentPage != 1 && (
+          <>
+            <a class='btn mx-2' href='/blog'>
+              First Page
+            </a>
+            <a class='btn mx-2' href={url.prev}>
+              prev
+            </a>
+          </>
         )
-      })
-    }
-    <div>
-      <a class='btn' href='/blog'>First Page</a>
-      <a class='btn' href={page.url.prev}>prev</a>
-      <div class='btn'>current page : {page.currentPage}</div>
-      <div class='btn'>total page : {page.lastPage}</div>
-      <a class='btn' href={page.url.next}>next</a>
-      <a class='btn' href={`/blog/${page.lastPage}`}>Last Page</a>
+      }
+      <div class='btn mx-2'>current page : {currentPage}</div>
+      <div class='btn mx-2'>total page : {lastPage}</div>
+      {
+        currentPage != lastPage && (
+          <>
+            <a class='btn mx-2' href={url.next}>
+              next
+            </a>
+            <a class='btn mx-2' href={`/blog/${lastPage}`}>
+              Last Page
+            </a>
+          </>
+        )
+      }
     </div>
   </main>
 </Wraper>
