@@ -1,10 +1,10 @@
 import type { AstroComponentFactory } from 'astro/dist/runtime/server'
 
-export interface author {
+export interface Author {
   name: string
   uri: string
 }
-export interface posts {
+export interface Posts {
   title: string
   slug: string | undefined | boolean
   date: string
@@ -16,17 +16,35 @@ export interface posts {
   image: string
   thumbnail: string
   description: string
-  author: author
+  author: Author
 }
-interface TAGS {
+interface Tags {
   name:string
 }
-export interface astro {
+export interface Astro {
   TITLE: string
   Content: AstroComponentFactory
-  slug: string
+  SLUG: string
   DESCRIPTION: string
-  AUTHOR: author
+  AUTHOR: Author
   DATE: string
-  TAGS: TAGS[]
+  TAGS: Tags[]
+}
+interface Url {
+  prev: string
+  next: string
+}
+interface Params {
+  slug: string
+}
+interface Data {
+  params: Params
+  props: Astro
+}
+export interface Pagenation {
+  url: Url
+  lastPage: number
+  currentPage: number
+  total: number
+  data: Data[]
 }

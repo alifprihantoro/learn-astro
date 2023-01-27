@@ -1,26 +1,26 @@
 ---
 import Wraper from '@components/Wraper.astro'
-import { SEO } from '@configs/home'
+import { INFO_WEB } from '@configs/home'
 import '../../style/list.scss'
 import getPropsBlogs from '@utils/getPropsBlogs'
 import PageHeader from '@layouts/blog/PageHeader'
 import ListBlog from '@layouts/blog/List'
 import PagenationPageBlog from '@layouts/blog/PagenationPageBlog'
-import type { page } from '@Mytypes/astro'
+import type { Pagenation } from '@Mytypes/blogProps'
 
 export async function getStaticPaths({ paginate }) {
-  const posts = await Astro.glob('../../posts/blog/**/*.md')
-  const POST_SORT = getPropsBlogs(posts)
+  const GET_POST_LIST = await Astro.glob('../../posts/blog/**/*.md')
+  const POST_SORT = getPropsBlogs(GET_POST_LIST)
   return paginate(POST_SORT, { pageSize: 5 })
 }
 
-const PAGE = Astro.props.page as page
+const PAGE_PROPS = Astro.props.page as Pagenation
 ---
 
-<Wraper SEO={SEO}>
+<Wraper INFO_SEO={INFO_WEB}>
   <main class='flex flex-wrap mx-10'>
-    <PageHeader total={PAGE.total} />
-    <ListBlog page={PAGE} />
-    <PagenationPageBlog page={PAGE}/>
+    <PageHeader TOTAL={PAGE_PROPS.total} />
+    <ListBlog PAGE_INFO={PAGE_PROPS} />
+    <PagenationPageBlog PAGE_PROPS={PAGE_PROPS}/>
   </main>
 </Wraper>

@@ -3,7 +3,7 @@ import Seo from '@components/Seo'
 import '../style/svg.scss'
 import Nav from '@components/nav'
 import Footer from '@components/footer'
-const { SEO } = Astro.props
+const { INFO_SEO } = Astro.props
 const MODE = import.meta.env.NODE_ENV !== 'development'
 ---
 
@@ -12,7 +12,7 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
     <meta charset='UTF-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    {MODE && <Seo seo={SEO} />}
+    {MODE && <Seo seo={INFO_SEO} />}
   </head>
   <body class='w-full md:w-[900px] mx-auto bg-base-200'>
     <a

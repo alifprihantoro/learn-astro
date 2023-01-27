@@ -27,7 +27,7 @@ export default function getPropsBlogs(posts: MarkdownInstance<Record<string, any
     const LASTMOD = frontmatter.lasmod
     return {
       params: { slug },
-      props: { TITLE, Content, slug, DESCRIPTION, AUTHOR, DATE, TAGS, LASTMOD },
+      props: { TITLE, Content, SLUG: slug, DESCRIPTION, AUTHOR, DATE, TAGS, LASTMOD },
     }
   })
 }

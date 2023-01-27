@@ -1,16 +1,16 @@
-interface TAGS {
+interface Tags {
   name: string
 }
-interface info {
+interface Info {
   TITLE: string
   SLUG: string
-  TAGS: TAGS[]
+  TAGS: Tags[]
 }
-interface props {
-  info: info
+interface Props {
+  INFO: Info
 }
-export default function Breadcrumbs({ info }: props) {
-  const { TITLE, SLUG, TAGS } = info
+export default function Breadcrumbs({ INFO }: Props) {
+  const { TITLE, SLUG, TAGS } = INFO
   return (
     <div className='w-[90%] text-sm breadcrumbs m-5'>
       <ul>

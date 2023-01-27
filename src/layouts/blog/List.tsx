@@ -1,18 +1,18 @@
-import type { page } from '@Mytypes/astro'
+import type { Pagenation } from '@Mytypes/blogProps'
 
 interface props {
-  page: page
+  PAGE_INFO: Pagenation
 }
-export default function ListBlog({ page }: props) {
+export default function ListBlog({ PAGE_INFO }: props) {
   return (
     <div className='myread'>
       {
-        page.data.map(({ props }, i) => {
+        PAGE_INFO.data.map(({ props }, i) => {
           // eslint-disable-next-line react/prop-types
-          const { slug, TITLE, DATE } = props
+          const { SLUG, TITLE, DATE } = props
           const MyDate = new Date(DATE)
           return (
-            <a key={i} href={`/blog/${slug}`}>
+            <a key={i} href={`/blog/${SLUG}`}>
               <div className='content'>
                 <span className='date'>
                   <span className='day'>{MyDate.getDay()}</span>

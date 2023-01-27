@@ -1,9 +1,9 @@
-import type { page } from '@Mytypes/astro'
+import type { Pagenation } from '@Mytypes/blogProps'
 interface props {
-  page: page
+  PAGE_PROPS: Pagenation
 }
-export default function PagenationPageBlog({ page }: props) {
-  const { currentPage, url, lastPage } = page
+export default function PagenationPageBlog({ PAGE_PROPS }: props) {
+  const { currentPage, url, lastPage } = PAGE_PROPS
   return (
     <div className='w-fit m-auto text-center leading-[4rem]'>
       {

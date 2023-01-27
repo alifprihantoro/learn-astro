@@ -1,7 +1,7 @@
 interface props {
-  total: number
+  TOTAL: number
 }
-export default function PageHeader({ total }: props) {
+export default function PageHeader({ TOTAL }: props) {
   return (
     <>
       <h2 className='font-bold text-4xl mx-5 my-5 border-b-2 w-full'>Blog</h2>
@@ -20,7 +20,7 @@ export default function PageHeader({ total }: props) {
             ></path></svg
           >
           <span>
-            {`Terdapat "${total}" Postingan dari Blog yang bisa kalian baca dan komentari.`}
+            {`Terdapat "${TOTAL}" Postingan dari Blog yang bisa kalian baca dan komentari.`}
           </span>
         </div>
       </div>

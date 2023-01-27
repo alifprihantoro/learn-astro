@@ -4,27 +4,27 @@ import Breadcrumbs from '@components/content/Breadcrumbs'
 import Tags from '@components/content/Tags'
 import HeaderBlog from '@layouts/blog/Header'
 import getPropsBlogs from '@utils/getPropsBlogs'
-import type { astro } from '@Mytypes/blogProps'
+import type { Astro } from '@Mytypes/blogProps'
 
 export async function getStaticPaths() {
-  let posts = await Astro.glob('../../posts/blog/**/*.md')
-  return getPropsBlogs(posts)
+  let GET_POST_LIST = await Astro.glob('../../posts/blog/**/*.md')
+  return getPropsBlogs(GET_POST_LIST)
 }
-const { TITLE, Content, slug, DESCRIPTION, AUTHOR, DATE, TAGS } =
-  Astro.props as astro
-const SEO = {
+const { TITLE, Content, SLUG, DESCRIPTION, AUTHOR, DATE, TAGS } =
+  Astro.props as Astro
+const SEO_PROPS = {
   TITLE: TITLE,
-  LINK: `/blog/${slug}`,
+  LINK: `/blog/${SLUG}`,
   IMG: '',
   DESCRIPTION: TITLE + DESCRIPTION,
 }
-const BREADCRUMBS_PROPS = { TITLE, SLUG: slug, TAGS }
+const BREADCRUMBS_PROPS = { TITLE, SLUG: SLUG, TAGS }
 ---
 
-<Wrapper SEO={SEO}>
+<Wrapper SEO={SEO_PROPS}>
   <article>
-    <HeaderBlog TITLE={TITLE} slug={slug} AUTHOR={AUTHOR} DATE={DATE} />
-    <Breadcrumbs info={BREADCRUMBS_PROPS} />
+    <HeaderBlog TITLE={TITLE} SLUG={SLUG} AUTHOR={AUTHOR} DATE={DATE} />
+    <Breadcrumbs INFO={BREADCRUMBS_PROPS} />
     <div class='prose m-5'>
       <Content />
     </div>
