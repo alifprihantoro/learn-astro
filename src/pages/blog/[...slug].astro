@@ -10,8 +10,8 @@ export async function getStaticPaths() {
   let GET_POST_LIST = await Astro.glob('../../posts/blog/**/*.md')
   return getPropsBlogs(GET_POST_LIST)
 }
-const { TITLE, Content, SLUG, DESCRIPTION, AUTHOR, DATE, TAGS } =
-  Astro.props as Astro
+
+const { TITLE, Content, SLUG, DESCRIPTION, AUTHOR, DATE, TAGS } = Astro.props as Astro
 const SEO_PROPS = {
   TITLE: TITLE,
   LINK: `/blog/${SLUG}`,

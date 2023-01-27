@@ -4,6 +4,9 @@ export interface Author {
   name: string
   uri: string
 }
+/**
+* return frontmatter from markdown
+*/
 export interface Posts {
   title: string
   slug: string | undefined | boolean
@@ -21,6 +24,9 @@ export interface Posts {
 interface Tags {
   name:string
 }
+/**
+* return astro props from astro export
+*/
 export interface Astro {
   TITLE: string
   Content: AstroComponentFactory
@@ -41,6 +47,9 @@ interface Data {
   params: Params
   props: Astro
 }
+/**
+* return from pagenation astro
+*/
 export interface Pagenation {
   url: Url
   lastPage: number
