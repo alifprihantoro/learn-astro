@@ -18,7 +18,9 @@ export interface posts {
   description: string
   author: author
 }
-
+interface TAGS {
+  name:string
+}
 export interface astro {
   TITLE: string
   Content: AstroComponentFactory
@@ -26,5 +28,5 @@ export interface astro {
   DESCRIPTION: string
   AUTHOR: author
   DATE: string
-  TAGS: string[]
+  TAGS: TAGS[]
 }

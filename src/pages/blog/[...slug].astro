@@ -1,5 +1,7 @@
 ---
 import Wrapper from '@components/Wraper.astro'
+import Breadcrumbs from '@components/content/Breadcrumbs'
+import Tags from '@components/content/Tags'
 import HeaderBlog from '@layouts/blog/Header'
 import getPropsBlogs from '@utils/getPropsBlogs'
 import type { astro } from '@Mytypes/blogProps'
@@ -12,40 +14,20 @@ const { TITLE, Content, slug, DESCRIPTION, AUTHOR, DATE, TAGS } =
   Astro.props as astro
 const SEO = {
   TITLE: TITLE,
-  LINK: `/notes/${slug}`,
+  LINK: `/blog/${slug}`,
   IMG: '',
   DESCRIPTION: TITLE + DESCRIPTION,
 }
+const BREADCRUMBS_PROPS = { TITLE, SLUG: slug, TAGS }
 ---
 
 <Wrapper SEO={SEO}>
   <article>
     <HeaderBlog TITLE={TITLE} slug={slug} AUTHOR={AUTHOR} DATE={DATE} />
-    <div class='w-[90%] text-sm breadcrumbs m-5'>
-      <ul>
-        <li><a href='/'>Home</a></li>
-        <li><a href={`/blog/${slug}`}>{TITLE}</a></li>
-        {
-          TAGS.map((name) => {
-            return (
-              <li>
-                <a href={`/tags/${name}`}>{name}</a>
-              </li>
-            )
-          })
-        }
-      </ul>
-    </div>
+    <Breadcrumbs info={BREADCRUMBS_PROPS} />
     <div class='prose m-5'>
       <Content />
     </div>
-    <!-- tags -->
-    <div>
-      {
-        TAGS.map((name) => {
-          return <a class='btn m-3'>{name}</a>
-        })
-      }
-    </div>
+    <Tags TAGS={TAGS}/>
   </article>
 </Wrapper>
