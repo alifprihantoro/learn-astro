@@ -1,31 +1,17 @@
 ---
 import Wraper from '@components/Wraper.astro'
 import { SEO } from '@configs/home'
-import getBlogMd from '@utils/getBlogMd'
 import '../../style/list.scss'
+import getPropsBlogs from '@utils/getPropsBlogs'
 
 export async function getStaticPaths({ paginate }) {
   const posts = await Astro.glob('../../posts/blog/**/*.md')
-  const postsReplace = posts.map((post) => {
-    const frontmatter = post.frontmatter
-    const TITLE = frontmatter.title
-    const DATE = frontmatter.date
-    const LAST_MOD = frontmatter.lastmod
-    let slug = frontmatter.slug
-    slug =
-      slug === undefined || slug === false
-        ? getBlogMd(post.file)
-        : frontmatter.slug
-    return { TITLE, slug, DATE, LAST_MOD }
-  })
+  const POST_SORT = getPropsBlogs(posts)
   // Return a paginated collection of paths for all posts
-  return paginate(postsReplace, { pageSize: 5 })
+  return paginate(POST_SORT, { pageSize: 5 })
 }
 
-// If set up correctly, The page prop now has everything that
-// you need to render a single page (see next section).
 const { page } = Astro.props
-console.log(page)
 const { url, lastPage, currentPage, total } = page
 ---
 
@@ -47,14 +33,15 @@ const { url, lastPage, currentPage, total } = page
           ></path></svg
         >
         <span>
-          Terdapat "{page.total}" Postingan dari Blog yang bisa kalian baca dan
+          Terdapat "{total}" Postingan dari Blog yang bisa kalian baca dan
           komentari.
         </span>
       </div>
     </div>
     <div class='myread'>
       {
-        page.data.map(({ slug, TITLE, DATE }) => {
+        page.data.map(({ props }) => {
+          const { slug, TITLE, DATE } = props
           const MyDate = new Date(DATE)
           return (
             <a href={`/blog/${slug}`}>
@@ -76,7 +63,7 @@ const { url, lastPage, currentPage, total } = page
         })
       }
     </div>
-    <div class="w-fit m-auto text-center leading-[4rem]">
+    <div class='w-fit m-auto text-center leading-[4rem]'>
       {
         currentPage != 1 && (
           <>
