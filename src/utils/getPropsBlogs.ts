@@ -1,7 +1,10 @@
 import getBlogMd from '@utils/getBlogMd'
 import type { MarkdownInstance } from 'astro'
-import type { posts } from '@Mytypes/blogProps'
+import type { Posts } from '@Mytypes/blogProps'
 
+/**
+* @returns [markdown array] from astro and sort by date
+*/
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function getPropsBlogs(posts: MarkdownInstance<Record<string, any>>[]) {
   posts.sort((a, b) => {
@@ -10,7 +13,7 @@ export default function getPropsBlogs(posts: MarkdownInstance<Record<string, any
     return B_DATE - A_DATE
   })
   return posts.map((post) => {
-    const frontmatter = post.frontmatter as posts
+    const frontmatter = post.frontmatter as Posts
     const TITLE = frontmatter.title
     let slug = frontmatter.slug
     slug =

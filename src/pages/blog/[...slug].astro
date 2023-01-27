@@ -2,28 +2,15 @@
 import Wrapper from '@components/Wraper.astro'
 import Breadcrumbs from '@components/content/Breadcrumbs'
 import Tags from '@components/content/Tags'
+import NextPrev from '@components/content/NextPrev'
 import HeaderBlog from '@layouts/blog/Header'
 import getPropsBlogs from '@utils/getPropsBlogs'
 import type { Astro } from '@Mytypes/blogProps'
+import nextPrevPost from '@utils/nextPrevPost'
 
 export async function getStaticPaths() {
   let GET_POST_LIST = await Astro.glob('../../posts/blog/**/*.md')
-  const SORT_LIST = getPropsBlogs(GET_POST_LIST)
-  const GET_NEXT_PREV = SORT_LIST.map(({ params, props }, i) => {
-    const GET_NEXT_POST = i !== SORT_LIST.length-1 && SORT_LIST[i + 1]
-    const NEXT_POST = {
-      TITLE: GET_NEXT_POST?.props?.TITLE,
-      SLUG: GET_NEXT_POST?.props?.SLUG,
-    }
-    const GET_PREV_POST = i !== 0 && SORT_LIST[i - 1]
-    const PREV_POST = {
-      TITLE: GET_PREV_POST?.props?.TITLE,
-      SLUG: GET_PREV_POST?.props?.SLUG,
-    }
-    const NEW_PROPS = { ...props, NEXT_POST, PREV_POST }
-    return { params, props: NEW_PROPS }
-  })
-  return GET_NEXT_PREV
+  return nextPrevPost(getPropsBlogs(GET_POST_LIST))
 }
 
 const {
@@ -54,19 +41,6 @@ const BREADCRUMBS_PROPS = { TITLE, SLUG: SLUG, TAGS }
       <Content />
     </div>
     <Tags TAGS={TAGS} />
-    {
-      PREV_POST.TITLE !== undefined && (
-        <a href={PREV_POST.SLUG}>
-          <div class='btn'>{PREV_POST.TITLE}</div>
-        </a>
-      )
-    }
-    {
-      NEXT_POST.TITLE !== undefined && (
-        <a href={NEXT_POST.SLUG}>
-          <div class='btn'>{NEXT_POST.TITLE}</div>
-        </a>
-      )
-    }
+    <NextPrev NEXT_POST={NEXT_POST} PREV_POST={PREV_POST} />
   </article>
 </Wrapper>
