@@ -8,10 +8,35 @@ import type { Astro } from '@Mytypes/blogProps'
 
 export async function getStaticPaths() {
   let GET_POST_LIST = await Astro.glob('../../posts/blog/**/*.md')
-  return getPropsBlogs(GET_POST_LIST)
+  const SORT_LIST = getPropsBlogs(GET_POST_LIST)
+  const GET_NEXT_PREV = SORT_LIST.map(({ params, props }, i) => {
+    const GET_NEXT_POST = i !== SORT_LIST.length-1 && SORT_LIST[i + 1]
+    const NEXT_POST = {
+      TITLE: GET_NEXT_POST?.props?.TITLE,
+      SLUG: GET_NEXT_POST?.props?.SLUG,
+    }
+    const GET_PREV_POST = i !== 0 && SORT_LIST[i - 1]
+    const PREV_POST = {
+      TITLE: GET_PREV_POST?.props?.TITLE,
+      SLUG: GET_PREV_POST?.props?.SLUG,
+    }
+    const NEW_PROPS = { ...props, NEXT_POST, PREV_POST }
+    return { params, props: NEW_PROPS }
+  })
+  return GET_NEXT_PREV
 }
 
-const { TITLE, Content, SLUG, DESCRIPTION, AUTHOR, DATE, TAGS } = Astro.props as Astro
+const {
+  TITLE,
+  Content,
+  SLUG,
+  DESCRIPTION,
+  AUTHOR,
+  DATE,
+  TAGS,
+  NEXT_POST,
+  PREV_POST,
+} = Astro.props as Astro
 const SEO_PROPS = {
   TITLE: TITLE,
   LINK: `/blog/${SLUG}`,
@@ -28,6 +53,20 @@ const BREADCRUMBS_PROPS = { TITLE, SLUG: SLUG, TAGS }
     <div class='prose m-5'>
       <Content />
     </div>
-    <Tags TAGS={TAGS}/>
+    <Tags TAGS={TAGS} />
+    {
+      PREV_POST.TITLE !== undefined && (
+        <a href={PREV_POST.SLUG}>
+          <div class='btn'>{PREV_POST.TITLE}</div>
+        </a>
+      )
+    }
+    {
+      NEXT_POST.TITLE !== undefined && (
+        <a href={NEXT_POST.SLUG}>
+          <div class='btn'>{NEXT_POST.TITLE}</div>
+        </a>
+      )
+    }
   </article>
 </Wrapper>

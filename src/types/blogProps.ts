@@ -24,6 +24,10 @@ export interface Posts {
 interface Tags {
   name:string
 }
+interface Link {
+  TITLE:string
+  SLUG:string
+}
 /**
 * return astro props from astro export
 */
@@ -35,6 +39,8 @@ export interface Astro {
   AUTHOR: Author
   DATE: string
   TAGS: Tags[]
+  NEXT_POST:Link
+  PREV_POST:Link
 }
 interface Url {
   prev: string

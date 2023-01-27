@@ -17,6 +17,7 @@ export default function Breadcrumbs({ INFO }: Props) {
         <li><a href='/'>Home</a></li>
         <li><a href={`/blog/${SLUG}`}>{TITLE}</a></li>
         {
+          TAGS !== undefined &&
           TAGS.map((NAME, i) => {
             return (
               <li key={i}>
