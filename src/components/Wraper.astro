@@ -3,6 +3,7 @@ import Seo from '@components/Seo'
 import '../style/svg.scss'
 import Nav from '@components/nav'
 import Footer from '@components/footer'
+import CookiesAccept from '@components/CookiesAccept'
 const { INFO_SEO } = Astro.props
 const MODE = import.meta.env.NODE_ENV !== 'development'
 ---
@@ -15,6 +16,7 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
     {MODE && <Seo seo={INFO_SEO} />}
   </head>
   <body class='w-full md:w-[900px] mx-auto bg-base-200'>
+    <CookiesAccept />
     <a
       href='#content'
       tabindex='1'
@@ -24,5 +26,12 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
     <Nav />
     <slot />
     <Footer />
+    <script>
+      const BTN_COOKIES = document.getElementById('btn-cookies-acc')
+      BTN_COOKIES.onclick = function () {
+        const BODY_COOKIES = document.getElementById('btn-cookies-body')
+        BODY_COOKIES.remove()
+      }
+    </script>
   </body>
 </html>
