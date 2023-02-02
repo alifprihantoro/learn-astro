@@ -1,9 +1,9 @@
 import type { PROPS_SEO } from '@Mytypes/Seo'
+import { TITLE as HOME } from '@configs/home'
 
 export default function Seo({ seo }: PROPS_SEO) {
   const { TITLE, LINK, IMG, DATE_CONTENT, PAGENATION } = seo
-  const SITE_NAME = ''
-  const SITE_TITLE = `${SITE_NAME} | ${TITLE}`
+  const SITE_TITLE = `${HOME} | ${TITLE}`
   const USERNAME = '@alifprihantoro'
   const DESCRIPTION = TITLE
   const SITE_IMG = ''
@@ -59,7 +59,7 @@ export default function Seo({ seo }: PROPS_SEO) {
       <meta name='distribution' content='Global' />
       <meta name='HandheldFriendly' content='True' />
       <meta name='msapplication-tap-highlight' content='no' />
-      <meta name='apple-mobile-web-app-title' content={SITE_NAME} />
+      <meta name='apple-mobile-web-app-title' content={HOME} />
       <meta name='apple-mobile-web-app-capable' content='yes' />
       <meta
         name='apple-mobile-web-app-status-bar-style'
