@@ -9,7 +9,7 @@ import PagenationPageBlog from '@layouts/blog/PagenationPageBlog'
 import type { Pagenation } from '@Mytypes/blogProps'
 
 export async function getStaticPaths({ paginate }) {
-  const GET_POST_LIST = await Astro.glob('../../posts/blog/**/*.md')
+  const GET_POST_LIST = await Astro.glob('../../content/blog/**/*.md')
   const POST_SORT = getPropsBlogs(GET_POST_LIST)
   return paginate(POST_SORT, { pageSize: 5 })
 }

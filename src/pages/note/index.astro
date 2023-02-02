@@ -2,7 +2,7 @@
 import Wraper from '@components/Wraper.astro'
 import { INFO_WEB } from '@configs/home'
 
-const posts = await Astro.glob('../../posts/note/**/*.md')
+const posts = await Astro.glob('../../content/note/**/*.md')
 const postsReplace = posts.map((post) => {
   const frontmatter = post.frontmatter
   const TITLE = frontmatter.title

@@ -2,7 +2,7 @@
 import Wrapper from '@components/Wraper.astro'
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob('../../posts/note/**/*.md')
+  const posts = await Astro.glob('../../content/note/**/*.md')
   return posts.map((post) => {
     const frontmatter = post.frontmatter
     const TITLE = frontmatter.title

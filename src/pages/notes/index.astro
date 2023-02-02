@@ -3,7 +3,7 @@ import Wraper from '@components/Wraper.astro'
 import { INFO_WEB } from '@configs/home'
 import pathMd2Url from '@utils/pathMd2Url'
 
-const posts = await Astro.glob('../../posts/notes/**/*.md')
+const posts = await Astro.glob('../../content/notes/**/*.md')
 const postsReplace = posts.map((post) => {
   const slug = pathMd2Url(post.file)
   return slug

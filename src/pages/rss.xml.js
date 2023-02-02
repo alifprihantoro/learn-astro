@@ -1,18 +1,25 @@
 import rss from '@astrojs/rss'
+import getPropsBlogs from '@utils/getPropsBlogs'
 
-export function get(context) {
+export async function get(context) {
+  // const blog = await getCollection('blog')
+  const postImportResult = import.meta.glob('../content/blog/**/*.md', { eager: true })
+  const posts = Object.values(postImportResult)
+  const POST_SORT = getPropsBlogs(posts)
+  const ITEMS = POST_SORT.map(({ props }) => {
+    const { TITLE, DATE, SLUG, DESCRIPTION } = props
+    const DESCRIPTION_CHECK = DESCRIPTION == undefined ? '' : DESCRIPTION
+    return {
+      title: TITLE,
+      pubDate: new Date(DATE),
+      description: DESCRIPTION_CHECK,
+      link: `/blog/${SLUG}/`,
+    }
+  })
   return rss({
-    // `<title>` field in output xml
     title: 'Buzz?s Blog',
-    // `<description>` field in output xml
     description: 'A humble Astronaut?s guide to the stars',
-    // Pull in your project "site" from the endpoint context
-    // https://docs.astro.build/en/reference/api-reference/#contextsite
     site: context.site,
-    // Array of `<item>`s in output xml
-    // See "Generating items" section for examples using content collections and glob imports
-    items: [],
-    // (optional) inject custom xml
-    customData: '<language>en-us</language>',
+    items: ITEMS,
   })
 }

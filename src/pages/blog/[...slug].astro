@@ -9,7 +9,7 @@ import type { Astro } from '@Mytypes/blogProps'
 import nextPrevPost from '@utils/nextPrevPost'
 
 export async function getStaticPaths() {
-  let GET_POST_LIST = await Astro.glob('../../posts/blog/**/*.md')
+  let GET_POST_LIST = await Astro.glob('../../content/blog/**/*.md')
   return nextPrevPost(getPropsBlogs(GET_POST_LIST))
 }
 
