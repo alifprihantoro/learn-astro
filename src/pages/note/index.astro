@@ -1,18 +1,17 @@
 ---
 import Wraper from '@components/Wraper.astro'
-import { SEO } from '@configs/home'
+import { INFO_WEB } from '@configs/home'
 
 const posts = await Astro.glob('../../posts/note/**/*.md')
 const postsReplace = posts.map((post) => {
   const frontmatter = post.frontmatter
   const TITLE = frontmatter.title
   const SLUG = frontmatter.slug
-  console.log(SLUG)
   return { TITLE, SLUG }
 })
 ---
 
-<Wraper SEO={SEO}>
+<Wraper SEO={INFO_WEB}>
   <main class='flex flex-wrap mx-10'>
     {
       postsReplace.map(({ SLUG, TITLE }) => {

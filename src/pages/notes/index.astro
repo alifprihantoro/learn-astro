@@ -1,6 +1,6 @@
 ---
 import Wraper from '@components/Wraper.astro'
-import { SEO } from '@configs/home'
+import { INFO_WEB } from '@configs/home'
 import pathMd2Url from '@utils/pathMd2Url'
 
 const posts = await Astro.glob('../../posts/notes/**/*.md')
@@ -10,7 +10,7 @@ const postsReplace = posts.map((post) => {
 })
 ---
 
-<Wraper SEO={SEO}>
+<Wraper SEO={INFO_WEB}>
   <main class='flex flex-wrap mx-10'>
     {
       postsReplace.map((slug) => {
