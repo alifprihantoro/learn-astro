@@ -13,7 +13,7 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        dracula: {
+        dark: {
           'primary': '#4f46e5',
           'secondary': '#3b82f6',
           'accent': '#5eead4',
@@ -24,8 +24,18 @@ module.exports = {
           'warning': '#F1FA8C',
           'error': '#FF5555',
         },
+        light: {
+          'primary': '#4f46e5',
+          'secondary': '#3b82f6',
+          'accent': '#5eead4',
+          'neutral': '#414558',
+          'base-300': '#282A36',
+          'info': '#374151',
+          'success': '#50FA7B',
+          'warning': '#F1FA8C',
+          'error': '#FF5555',
+        },
       },
-      'cupcake',
     ],
   },
   // eslint-disable-next-line no-undef
