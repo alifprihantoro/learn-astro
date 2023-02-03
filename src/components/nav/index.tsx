@@ -12,6 +12,7 @@ export default function Nav() {
           sm:mr-0 z-[99]'>
           <ul className='max-sm:bg-neutral w-fit menu menu-horizontal rounded-box m-auto'>
             <NavList />
+            <input id='dark-btn' type="checkbox" className="toggle m-auto mr-3" checked />
             <Dropdown />
           </ul>
         </div>

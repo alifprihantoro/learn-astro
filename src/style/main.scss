@@ -1,0 +1,8 @@
+@use './font';
+@use './svg';
+h1,h2 {
+  @apply font-Rokkit;
+}
+h3,h4 {
+  @apply font-Lato font-bold;
+}

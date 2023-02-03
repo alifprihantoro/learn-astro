@@ -1,6 +1,6 @@
 ---
 import Seo from '@components/Seo'
-import '../style/svg.scss'
+import '../style/main.scss'
 import Nav from '@components/nav'
 import Footer from '@components/footer'
 import CookiesAccept from '@components/CookiesAccept'
@@ -15,7 +15,7 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     {MODE && <Seo seo={INFO_SEO} />}
   </head>
-  <body class='w-full md:w-[900px] mx-auto bg-base-200'>
+  <body class='w-full md:w-[900px] mx-auto bg-base-200 font-Lato' >
     <CookiesAccept />
     <a
       href='#content'
@@ -31,6 +31,14 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
       BTN_COOKIES.onclick = function () {
         const BODY_COOKIES = document.getElementById('btn-cookies-body')
         BODY_COOKIES.remove()
+      }
+      const DARK_BTN = document.getElementById('dark-btn')
+      DARK_BTN.onclick = function () {
+        const isDark = DARK_BTN.checked
+        console.log(isDark)
+        console.log(document.childNodes[1].getAttribute('data-theme'))
+        document.childNodes[1].setAttribute('data-theme','cupcake')
+        console.log(document.childNodes[1].getAttribute('data-theme'))
       }
     </script>
   </body>
