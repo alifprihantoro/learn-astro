@@ -26,7 +26,7 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
     <Nav />
     <slot />
     <Footer />
-    <script>
+    <script define:vars={{ Footer }}>
       let isConfirm = () => localStorage.getItem('confirm-cookies') === 'y'
       const BTN_COOKIES = document.getElementById('btn-cookies-acc')
       const BODY_COOKIES = document.getElementById('btn-cookies-body')
@@ -39,6 +39,7 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
         }
       }
 
+      console.log(Footer)
       let isLight = () => localStorage.getItem('dark-mode') === 'light'
 
       const DARK_BTN = document.getElementById('dark-btn')
