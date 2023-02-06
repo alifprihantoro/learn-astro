@@ -11,19 +11,17 @@ import robotsTxt from 'astro-robots-txt'
 import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
+import turbolinks from '@astrojs/turbolinks'
+
+// https://astro.build/config
 export default defineConfig({
   site: 'https://muryp.my.id',
-  integrations: [
-    preact({
-      compat: true,
-    }),
-    tailwind({
-      config: {
-        applyBaseStyles: true,
-        path: './tailwind.config.cjs',
-      },
-    }),
-    robotsTxt(),
-    sitemap(),
-  ],
+  integrations: [preact({
+    compat: true,
+  }), tailwind({
+    config: {
+      applyBaseStyles: true,
+      path: './tailwind.config.cjs',
+    },
+  }), robotsTxt(), sitemap(), turbolinks()],
 })
