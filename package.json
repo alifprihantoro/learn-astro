@@ -15,6 +15,7 @@
     "react-dom": "npm:@preact/compat@latest"
   },
   "dependencies": {
+    "@astrojs/partytown": "^1.0.3",
     "@astrojs/preact": "^2.0.1",
     "@astrojs/react": "^2.0.2",
     "@astrojs/rss": "^2.1.0",
