@@ -4,7 +4,7 @@ import type MarkdownIt from 'markdown-it'
 import headingName from 'markdown-it-named-headings'
 import checkBox from 'markdown-it-checkbox'
 
-export default function render(Content:string) {
+export default function render(Content: string) {
   // Actual default values
   const md = mdIt({
     highlight: function(str, lang) {
@@ -21,10 +21,11 @@ export default function render(Content:string) {
     linkify: true,
     typographer: true,
   })
-    .use(headingName) 
+    .use(headingName)
     .use(checkBox) as MarkdownIt
 
-  md.renderer.rules.link_open = function(tokens, idx, options, env, slf) {
+  // eslint-disable-next-line camelcase
+  md.renderer.rules.link_open = function(tokens, idx, options, _, slf) {
     const token = tokens[idx]
     const GET_LINK = token.attrs[0][1]
     const CEK_HTTPS_WWW = /(http(|s):(\/\/|)|)(www|)/i.test(GET_LINK)

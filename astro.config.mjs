@@ -16,7 +16,6 @@ import turbolinks from '@astrojs/turbolinks'
 // https://astro.build/config
 import partytown from '@astrojs/partytown'
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://muryp.my.id',
   integrations: [preact({
