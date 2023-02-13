@@ -37,9 +37,7 @@ const BREADCRUMBS_PROPS = { TITLE, SLUG, TAGS }
   <article>
     <HeaderBlog TITLE={TITLE} SLUG={SLUG} AUTHOR={AUTHOR} DATE={DATE} />
     <Breadcrumbs INFO={BREADCRUMBS_PROPS} />
-    <div class='prose m-5'>
-      <Content />
-    </div>
+    <div class='prose m-5' set:html={Content} />
     <Tags TAGS={TAGS} />
     <NextPrev NEXT_POST={NEXT_POST} PREV_POST={PREV_POST} />
   </article>

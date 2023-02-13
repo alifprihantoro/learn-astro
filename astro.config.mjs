@@ -26,10 +26,5 @@ export default defineConfig({
       applyBaseStyles: true,
       path: './tailwind.config.cjs',
     },
-  }),
-  robotsTxt(),
-  sitemap(),
-  turbolinks(),
-  partytown(),
-  ],
+  }), robotsTxt(), sitemap(), turbolinks(), partytown()],
 })

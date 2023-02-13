@@ -1,3 +1,22 @@
+# tes heading
+## tes heading
+## tes heading dua
+## hello 'petik'
+
+> hello word
+
+lorem **bold** *italic* _underline_
+
+- list :
+  - dua
+  - tiga
+
+![hello hig](/tes.png)
+
+muryp.my.id
+[blog](/blog)
+[blog](../blog)
+
 source : https://github.com/ota-meshi/eslint-plugin-astro
 
 ```javascript

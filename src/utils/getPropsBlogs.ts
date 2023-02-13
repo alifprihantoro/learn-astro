@@ -1,6 +1,7 @@
 import getBlogMd from '@utils/getBlogMd'
 import type { MarkdownInstance } from 'astro'
 import type { Posts } from '@Mytypes/blogProps'
+import render from '@utils/markdownIt'
 
 /**
 * @returns [markdown array] from astro and sort by date
@@ -21,7 +22,7 @@ export default function getPropsBlogs(posts: MarkdownInstance<Record<string, any
         ? getBlogMd(post.file)
         : frontmatter.slug
     const DESCRIPTION = frontmatter.description
-    const Content = post.Content
+    const Content = render(post.rawContent())
     let AUTHOR = frontmatter.author
     AUTHOR =
       AUTHOR === undefined ? { name: 'Alief Prihantoro', uri: '#' } : AUTHOR

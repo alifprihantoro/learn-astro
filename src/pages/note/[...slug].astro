@@ -1,5 +1,6 @@
 ---
 import Wrapper from '@components/Wraper.astro'
+import render from '@utils/markdownIt'
 
 export async function getStaticPaths() {
   const posts = await Astro.glob('../../content/note/**/*.md')
@@ -8,7 +9,7 @@ export async function getStaticPaths() {
     const TITLE = frontmatter.title
     const slug = frontmatter.slug
     const DESCRIPTION = frontmatter.description
-    const Content = post.Content
+    const Content = render(post.rawContent())
     return {
       params: { slug },
       props: { TITLE, Content, SLUG: slug, DESCRIPTION },
@@ -28,6 +29,6 @@ const SEO = {
 <Wrapper INFO_SEO={SEO}>
   <a href='/note' class='btn m-5'>back to list</a>
   <article class='prose m-5'>
-    <Content />
+    <div class='prose m-5' set:html={Content} />
   </article>
 </Wrapper>

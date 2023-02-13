@@ -1,13 +1,14 @@
 ---
 import pathMd2Url from '@utils/pathMd2Url'
 import Wrapper from '@components/Wraper.astro'
+import render from '@utils/markdownIt'
 
 export async function getStaticPaths() {
   const posts = await Astro.glob('../../content/notes/**/*.md')
   return posts.map((post) => {
     const slug = pathMd2Url(post.file)
     const title = slug.replace(/.*\//i, '')
-    const Content = post.Content
+    const Content = render(post.rawContent())
     return {
       params: { slug },
       props: { title, Content, slug },
@@ -27,6 +28,6 @@ const SEO = {
 <Wrapper INFO_SEO={SEO}>
   <a href="/notes" class='btn m-5'>back to list</a>
   <article class='prose m-5'>
-    <Content />
+    <div class='prose m-5' set:html={Content} />
   </article>
 </Wrapper>
