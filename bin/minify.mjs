@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { readdirSync, lstatSync } from 'fs'
 import { join } from 'path'
 import { minify } from 'minify'
@@ -11,7 +12,6 @@ const options = {
   },
 }
 const folder = './dist'
-const LIST = []
 const tes = (FOLDER) => {
   return readdirSync(FOLDER)
     .map(async (file) => {
@@ -19,9 +19,7 @@ const tes = (FOLDER) => {
       if (lstat) {
         const FILE = `${FOLDER}/${file}`
         const isMinify = /.*\.(html|js$|css)/i.test(file)
-        console.log(`${file} is minify= ${isMinify}`)
         if (isMinify) {
-          LIST.push(FILE)
           const [error, data] = await tryToCatch(minify, FILE, options)
           // const data = await minify(FILE, options)
           if (error) {
@@ -39,4 +37,3 @@ const tes = (FOLDER) => {
     })
 }
 tes(folder)
-console.log(LIST)
