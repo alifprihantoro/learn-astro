@@ -16,6 +16,7 @@
   },
   "license": "Apache License",
   "dependencies": {
+    "@astrojs/netlify": "^2.1.2",
     "@astrojs/partytown": "^1.0.3",
     "@astrojs/preact": "^2.0.1",
     "@astrojs/react": "^2.0.2",
@@ -26,7 +27,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "astro": "^2",
+    "astro": "^2.0.7",
     "astro-robots-txt": "^0.3.11",
     "eslint-plugin-astro": "^0.23.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
@@ -53,6 +54,7 @@
     "markdown-it-named-headings": "^1.1.0",
     "minify": "^9.2.0",
     "sass": "^1.57.1",
+    "sharp": "^0.31.3",
     "typescript": "*"
   }
 }

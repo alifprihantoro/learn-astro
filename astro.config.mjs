@@ -11,11 +11,13 @@ import robotsTxt from 'astro-robots-txt'
 import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
-import turbolinks from '@astrojs/turbolinks'
+// import turbolinks from '@astrojs/turbolinks'
 
 // https://astro.build/config
-import partytown from '@astrojs/partytown'
+// import partytown from '@astrojs/partytown'
+// import netlify from "@astrojs/netlify/functions";
 
+// https://astro.build/config
 export default defineConfig({
   site: 'https://muryp.my.id',
   integrations: [preact({
@@ -25,5 +27,9 @@ export default defineConfig({
       applyBaseStyles: true,
       path: './tailwind.config.cjs',
     },
-  }), robotsTxt(), sitemap(), turbolinks(), partytown()],
+  }), robotsTxt(), sitemap(),
+    // turbolinks(), partytown()
+  ],
+  // output: "server",
+  // adapter: netlify()
 })

@@ -2,8 +2,12 @@
 import Home from '@layouts/home'
 import Wrapper from '@components/Wraper.astro'
 import { INFO_WEB } from '@configs/home'
+import ListCardImg from '@components/ListCardImg'
+import project from '@Mytypes/project'
 ---
 
 <Wrapper INFO_SEO={INFO_WEB}>
-  <Home />
+  <Home>
+    <div id="root" class='md:flex md:p-5 max-w-full' set:html={ListCardImg(project)} />
+  </Home>
 </Wrapper>

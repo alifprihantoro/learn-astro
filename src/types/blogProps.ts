@@ -63,3 +63,7 @@ export interface Pagenation {
   total: number
   data: Data[]
 }
+/**
+* html but in string
+*/
+export type HtmlString = string

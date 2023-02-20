@@ -1,6 +1,6 @@
 import getBlogMd from '@utils/getBlogMd'
 import type { MarkdownInstance } from 'astro'
-import type { Posts } from '@Mytypes/blogProps'
+import type { HtmlString, Posts } from '@Mytypes/blogProps'
 import render from '@utils/markdownIt'
 
 /**
@@ -8,6 +8,7 @@ import render from '@utils/markdownIt'
 */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function getPropsBlogs(posts: MarkdownInstance<Record<string, any>>[]) {
+  // sort by date
   posts.sort((a, b) => {
     const A_DATE = new Date(a.frontmatter.date).valueOf()
     const B_DATE = new Date(b.frontmatter.date).valueOf()
@@ -20,9 +21,9 @@ export default function getPropsBlogs(posts: MarkdownInstance<Record<string, any
     slug =
       slug === undefined || slug === false
         ? getBlogMd(post.file)
-        : frontmatter.slug
+        : frontmatter.slug as string
     const DESCRIPTION = frontmatter.description
-    const Content = render(post.rawContent())
+    const Content = render(post.rawContent()) as HtmlString
     let AUTHOR = frontmatter.author
     AUTHOR =
       AUTHOR === undefined ? { name: 'Alief Prihantoro', uri: '#' } : AUTHOR
