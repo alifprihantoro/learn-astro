@@ -38,7 +38,7 @@ export interface Astro {
   DESCRIPTION: string
   AUTHOR: Author
   DATE: string
-  TAGS: Tags[]
+  TAGS: string[]
   NEXT_POST:Link
   PREV_POST:Link
 }

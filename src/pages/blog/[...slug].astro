@@ -1,9 +1,6 @@
 ---
 import Wrapper from '@components/Wraper.astro'
-import Breadcrumbs from '@components/content/Breadcrumbs'
-import Tags from '@components/content/Tags'
-import NextPrev from '@components/content/NextPrev'
-import HeaderBlog from '@layouts/blog/Header'
+import ContentMDSlug from '@components/content'
 import getPropsBlogs from '@utils/getPropsBlogs'
 import type { Astro } from '@Mytypes/blogProps'
 import nextPrevPost from '@utils/nextPrevPost'
@@ -13,32 +10,16 @@ export async function getStaticPaths() {
   return nextPrevPost(getPropsBlogs(GET_POST_LIST))
 }
 
-const {
-  TITLE,
-  Content,
-  SLUG,
-  DESCRIPTION,
-  AUTHOR,
-  DATE,
-  TAGS,
-  NEXT_POST,
-  PREV_POST,
-} = Astro.props as Astro
+const { TITLE, SLUG, DESCRIPTION } = Astro.props as Astro
 const SEO_PROPS = {
   TITLE: TITLE,
   LINK: `/blog/${SLUG}`,
   IMG: '',
   DESCRIPTION: TITLE + DESCRIPTION,
 }
-const BREADCRUMBS_PROPS = { TITLE, SLUG, TAGS }
+const Content = ContentMDSlug(Astro.props)
 ---
 
 <Wrapper INFO_SEO={SEO_PROPS}>
-  <article>
-    <HeaderBlog TITLE={TITLE} SLUG={SLUG} AUTHOR={AUTHOR} DATE={DATE} />
-    <Breadcrumbs INFO={BREADCRUMBS_PROPS} />
-    <div class='prose m-5' set:html={Content} />
-    <Tags TAGS={TAGS} />
-    <NextPrev NEXT_POST={NEXT_POST} PREV_POST={PREV_POST} />
-  </article>
+  <article set:html={Content} />
 </Wrapper>
