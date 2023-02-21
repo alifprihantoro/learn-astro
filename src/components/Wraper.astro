@@ -19,13 +19,13 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
     {MODE && <Seo seo={INFO_SEO} />}
     <link rel='stylesheet' href='/hi.css' />
   </head>
-  <body class='w-full md:w-[900px] mx-auto bg-base-200 font-Lato '>
+  <body class='w-full md:w-[900px] mx-auto bg-base-200 font-Lato'>
     <CookiesAccept />
     <a
       href='#content'
       tabindex='1'
       class='btn opacity-0 focus:opacity-100 fixed -z-[99] focus:z-[99]'
-      >Menuju ke konten</a
+    >Menuju ke konten</a
     >
     <Nav />
     <slot />
