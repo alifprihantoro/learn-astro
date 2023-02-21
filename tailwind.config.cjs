@@ -1,3 +1,4 @@
+const plugin = require('tailwindcss/plugin')
 /* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -29,6 +30,7 @@ module.exports = {
           'secondary': '#3b82f6',
           'accent': '#5eead4',
           'neutral': '#414558',
+          'base-100': '#cacaca',
           'base-300': '#282A36',
           'info': '#374151',
           'success': '#50FA7B',
@@ -42,5 +44,12 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('daisyui'),
+    plugin(function({ addComponents }) {
+      addComponents({
+        '.note-list': {
+          '@apply bg-base-100 m-5 py-3 px-5 rounded-md w-fit hover:-translate-y-3 transition-all duration-200': {},
+        },
+      })
+    }),
   ],
 }

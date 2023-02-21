@@ -10,7 +10,7 @@ export default function Footer() {
       </div>
       <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
         {Social.map(({ ICON, LINK_WEB, USERNAME }, i) => {
-          return <a className='[&>span]:hover:animate-bounce' rel='nofollow' target='blank' key={i} href={`https://${LINK_WEB}${USERNAME}`}><span className='flex'>{ICON}</span></a>
+          return <a className='hover:-translate-y-3 transition-all duration-200' rel='nofollow' target='blank' key={i} href={`https://${LINK_WEB}${USERNAME}`}>{ICON}</a>
         })}
       </div>
     </footer>

@@ -3,9 +3,6 @@
   @apply flex p-[15px] w-[80%] shadow-md shadow-base-300;
   border-radius: 5px;
   margin: 25px auto !important;
-  *{
-    @apply text-neutral-content;
-  }
   h3{
     @apply text-xl;
   }

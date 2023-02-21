@@ -3,7 +3,7 @@ export const ABOUT_HOME = {
   body: 'MuryP is open source project. where, all projects related to web development.',
   btn: {
     title: 'About Me',
-    link: '#',
+    link: 'https://github.com/alifprihantoro',
   },
 }
 export const ROADMAPS_HOME = {
