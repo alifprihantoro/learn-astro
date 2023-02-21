@@ -1,5 +1,6 @@
 @use './font';
 @use './svg';
+@use './scroll';
 h1,h2 {
   @apply font-Rokkit;
 }
