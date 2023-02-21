@@ -1,18 +1,18 @@
 /* eslint-disable react/jsx-key */
 export const CONTACS = [
   {
-    link: '#',
+    link: 'https://wa.me/message/PE5QUV4RBIU6L1',
     title: '083829383123',
-    icon: 'Telp',
+    icon: 'mdi:telephone',
   },
   {
-    link: '#',
+    link: 'mail:alifmuryp@gmail.com',
     title: 'alifmuryp@gmail.com',
-    icon: 'Email',
+    icon:'ic:round-email',
   },
   {
-    link: '#',
+    link: 'https://discord.gg/yDZrVZTB',
     title: 'muryp',
-    icon: 'Discord',
+    icon: 'ic:baseline-discord',
   },
 ]

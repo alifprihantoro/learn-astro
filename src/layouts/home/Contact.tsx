@@ -1,5 +1,4 @@
 import { CONTACS } from '@configs/home/CONTACTS'
-import { Icons } from '@configs/Icons'
 
 export default function ContactHome() {
   return (
@@ -11,8 +10,8 @@ export default function ContactHome() {
         {CONTACS.map(({ link, title, icon }, i) => {
           return (
             <li key={i} >
-              <a className='flex hover:text-primary' href={link} alt={`link menuju ${title}`}>
-                <span className='mx-3'>{Icons[icon]}</span>
+              <a className='flex hover:text-primary' rel='nofollow' target='blank' href={link} alt={`link menuju ${title}`}>
+                <span className="iconify mx-3" data-icon={icon}></span>
                 {title}
               </a>
             </li>

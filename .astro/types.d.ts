@@ -674,6 +674,29 @@ declare module 'astro:content' {
   data: any
 },
 },
+"pages": {
+"about.md": {
+  id: "about.md",
+  slug: "about",
+  body: string,
+  collection: "pages",
+  data: any
+},
+"privacy-policy.md": {
+  id: "privacy-policy.md",
+  slug: "privacy-policy",
+  body: string,
+  collection: "pages",
+  data: any
+},
+"technology.md": {
+  id: "technology.md",
+  slug: "technology",
+  body: string,
+  collection: "pages",
+  data: any
+},
+},
 
 	};
 

@@ -6,8 +6,8 @@
 * dropdown : specific for post/note/home
 */
 const MAIN_NAV_LIST = [
-  { title: 'home', link: '/', icon: 'pajamas:home' },
-  { title: 'about', link: '#about', icon: 'pajamas:profile' },
+  { title: 'home', link: '/', icon: 'material-symbols:home'},
+  { title: 'about', link: '#about', icon: 'mdi:user' },
   { title: 'contact', link: '#contact', icon: 'mdi:telephone' },
 ]
 const MAIN_NAV_LIST_DROPDOWN = [

@@ -9,8 +9,8 @@ export default function Footer() {
         <p tabIndex={0}>Copyright {TITLE} © 2023 - All right reserved</p>
       </div>
       <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-        {Social.map(({ ICON, LINK_WEB }, i) => {
-          return <a key={i} href={LINK_WEB}> <span className=''></span>{ICON}</a>
+        {Social.map(({ ICON, LINK_WEB, USERNAME }, i) => {
+          return <a rel='nofollow' target='blank' key={i} href={`https://${LINK_WEB}${USERNAME}`}> <span className=''></span>{ICON}</a>
         })}
       </div>
     </footer>
