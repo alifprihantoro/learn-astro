@@ -7,9 +7,7 @@ interface props {
 export default function ListBlog({ PAGE_INFO }: props) {
   return html`
     <div class='myread'>
-      ${PAGE_INFO.data.map(({ props }) => {
-    // eslint-disable-next-line react/prop-types
-    const { SLUG, TITLE, DATE } = props
+      ${PAGE_INFO.data.map(({ SLUG, TITLE, DATE }) => {
     const MyDate = new Date(DATE)
     return html`
       <a href="/blog/${SLUG}">
@@ -25,9 +23,7 @@ export default function ListBlog({ PAGE_INFO }: props) {
           <h3 class='readMore'>${TITLE}</h3>
         </div>
       </a>
-    `
-  })
-}
+    `})}
     </div>
   `
 }

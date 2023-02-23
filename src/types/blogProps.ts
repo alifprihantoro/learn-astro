@@ -21,12 +21,9 @@ export interface Posts {
   description: string
   author: Author
 }
-interface Tags {
-  name:string
-}
 interface Link {
-  TITLE:string
-  SLUG:string
+  TITLE: string
+  SLUG: string
 }
 /**
 * return astro props from astro export
@@ -39,19 +36,18 @@ export interface Astro {
   AUTHOR: Author
   DATE: string
   TAGS: string[]
-  NEXT_POST:Link
-  PREV_POST:Link
+  NEXT_POST: Link
+  PREV_POST: Link
 }
 interface Url {
   prev: string
   next: string
 }
-interface Params {
-  slug: string
-}
-interface Data {
-  params: Params
-  props: Astro
+interface pagenationData {
+  TITLE:string
+  DESCRIPTION:string
+  SLUG:string
+  DATE:string
 }
 /**
 * return from pagenation astro
@@ -61,7 +57,7 @@ export interface Pagenation {
   lastPage: number
   currentPage: number
   total: number
-  data: Data[]
+  data: pagenationData[]
 }
 /**
 * html but in string
