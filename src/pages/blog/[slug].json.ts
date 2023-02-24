@@ -1,3 +1,4 @@
+import type { Astro } from '@Mytypes/blogProps'
 import getPropsBlogs from '@utils/getPropsBlogs'
 import nextPrevPost from '@utils/nextPrevPost'
 import type { MarkdownInstance } from 'astro'
@@ -11,6 +12,7 @@ const ITEMS = POST_SORT.map(({ props }) => {
   return {
     TITLE,
     Content,
+    DESCRIPTION,
     SLUG,
     AUTHOR,
     DATE,
@@ -25,7 +27,7 @@ export async function get({ props }) {
   }
 }
 export async function getStaticPaths() {
-  return ITEMS.map((val) => {
+  return ITEMS.map((val: Astro) => {
     return { params: { slug: val.SLUG }, props: val }
   })
 }

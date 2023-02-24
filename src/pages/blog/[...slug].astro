@@ -17,7 +17,7 @@ const SEO_PROPS = {
   IMG: '',
   DESCRIPTION: TITLE + DESCRIPTION,
 }
-const Content = ContentMDSlug(Astro.props)
+const Content = ContentMDSlug(Astro.props as Astro)
 ---
 
 <Wrapper INFO_SEO={SEO_PROPS}>
