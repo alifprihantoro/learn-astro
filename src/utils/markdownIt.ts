@@ -29,7 +29,7 @@ export default function render(Content: string) {
     const token = tokens[idx]
     const GET_LINK = token.attrs[0][1]
     const CEK_HTTPS_WWW = /(http(|s):(\/\/|)|)(www|)/i.test(GET_LINK)
-    const isMyInternalLink = /(muryp.my.id|^\/|^\.\.\/)/i.test(GET_LINK)
+    const isMyInternalLink = /(muryp.my.id|^\/|^\.\.\/|^\.\/|^#)/i.test(GET_LINK)
     const isExternalLink = CEK_HTTPS_WWW && !isMyInternalLink
     if (isExternalLink) {
       token.attrSet('target', '_blank')

@@ -23,6 +23,7 @@ Secara singkat **Front End** bertugas pada bagian antarmuka pengguna. Dimana sel
 Untuk **back end** sendiri bertugas dibalik layar, dimana seluruh hal yang berkaitan dengan server, databases, auth dan hal lainnya yang gaib.
 
 ### Cara menjadi Web Dev
+[top](#)
 - Front End
 Untuk menjadi front end, cukup mudah kalian hanya bermodal laptop atau jika tidak mempunyainya bisa gunakan hp, lalu internet, bahasa inggris, dan ketekunan. Untuk pembahasan sendiri sudah banyak baik melalui video tutorial di youtube ataupun dari dokumentasi resmi masing-masing teknonolgi. Bahkan untuk roadmap-nya sendiri bisa kalian lihat di **roadmap.sh** kalian bisa belajar secara berurutan. Dan juga ada sebuah website selain memberikan pengetahuan gratis namun juga sertifikat gratis, yaitu free code camp. Mungkin tak hanya website ini saja yang menawarkan produknya secara gratis, masih banyak website lainnya. Namun perlu diketahui bahwa kebanyakan yang gratis dan berkualitas itu berbahasa inggris. Mungkin ada yang berbahasa indonesia, namun masih sedikit atau mungkin kualitasnya buruk.
 - Back End

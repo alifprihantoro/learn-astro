@@ -1,14 +1,12 @@
 import './themeBtn'
 import './cookiesBtn'
-import routersPage from './routers'
-const getLink = document.getElementsByTagName('a') as unknown as HTMLAnchorElement[]
-for (let i = 0; i < getLink.length; i++) {
-  getLink[i].onclick = (e) => {
-    e.preventDefault()
-    const LINK = getLink[i].href
-    if (LINK.match(/(muryp\.my\.id|localhost)/i)) {
-      routersPage({ LINK: LINK.split('/') })
+import getLink from './utils/getLink'
 
-    }
-  }
-}
+// const GET_FIRST_LINK = window.location.href.split('/').slice(3).join('/')
+// console.log(GET_FIRST_LINK)
+// window.history.replaceState({}, 'muryp', `/${GET_FIRST_LINK}`)
+await getLink()
+// document.addEventListener('DOMContentLoaded', () => {
+//   console.log('loaded')
+//   getLink({ TAG_NAME: '#root a' })
+// })

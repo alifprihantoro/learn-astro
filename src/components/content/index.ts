@@ -16,6 +16,8 @@ export default function ContentMDSlug(props: Astro) {
     NEXT_POST,
     PREV_POST,
   } = props
+    console.log(NEXT_POST)
+    console.log(PREV_POST)
   const BREADCRUMBS_PROPS = { TITLE, SLUG, TAGS }
   return HeaderBlog({ TITLE, SLUG, AUTHOR, DATE }) +
     Breadcrumbs(BREADCRUMBS_PROPS) +
