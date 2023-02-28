@@ -1,6 +1,6 @@
 ---
 title: "Get Link, Url management"
-slug: slug
+slug: get-link
 date: 2021-12-15T08:03:56+07:00
 lastmod: 2021-12-15T08:03:56+07:00
 draft: false

@@ -309,7 +309,7 @@ declare module 'astro:content' {
 },
 "js/link.md": {
   id: "js/link.md",
-  slug: "slug",
+  slug: "get-link",
   body: string,
   collection: "note",
   data: any
@@ -358,7 +358,7 @@ declare module 'astro:content' {
 },
 "js/watch-keyboard.md": {
   id: "js/watch-keyboard.md",
-  slug: "custom slug",
+  slug: "custom-slug",
   body: string,
   collection: "note",
   data: any
@@ -435,7 +435,7 @@ declare module 'astro:content' {
 },
 "typescrip/bassic.md": {
   id: "typescrip/bassic.md",
-  slug: "typescript:-bassic",
+  slug: "typescript-bassic",
   body: string,
   collection: "note",
   data: any
@@ -457,13 +457,6 @@ declare module 'astro:content' {
 "upt/termux.md": {
   id: "upt/termux.md",
   slug: "coding-di-termux-lebih-mudah",
-  body: string,
-  collection: "note",
-  data: any
-},
-"upt/theming-ubuntu.md": {
-  id: "upt/theming-ubuntu.md",
-  slug: "custom slug",
   body: string,
   collection: "note",
   data: any

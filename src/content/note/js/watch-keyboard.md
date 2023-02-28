@@ -1,6 +1,6 @@
 ---
 title: "Watch if press any keyboard"
-slug: custom slug
+slug: custom-slug
 date: cpLasmod
 lastmod: update
 

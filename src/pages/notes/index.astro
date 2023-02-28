@@ -11,21 +11,23 @@ const postsReplace = posts.map((post) => {
 ---
 
 <Wraper INFO_SEO={INFO_WEB}>
-  <main class='flex flex-wrap mx-10'>
-    {
-      postsReplace.map((slug) => {
-        const SPLIT_SLUG = slug.split('/')
-        const TITLE = SPLIT_SLUG[SPLIT_SLUG.length - 2]
-        if (SPLIT_SLUG[SPLIT_SLUG.length - 1] === 'list') {
-          return (
-            <div class='note-list'>
-              <h2 class='card-title'>
-                <a href={`./notes/${slug}`}>{TITLE}</a>
-              </h2>
-            </div>
-          )
-        }
-      })
-    }
-  </main>
+  <div id='root'>
+    <main class='flex flex-wrap mx-10'>
+      {
+        postsReplace.map((slug) => {
+          const SPLIT_SLUG = slug.split('/')
+          const TITLE = SPLIT_SLUG[SPLIT_SLUG.length - 2]
+          if (SPLIT_SLUG[SPLIT_SLUG.length - 1] === 'list') {
+            return (
+              <div class='note-list'>
+                <h2 class='card-title'>
+                  <a href={`./notes/${slug}`}>{TITLE}</a>
+                </h2>
+              </div>
+            )
+          }
+        })
+      }
+    </main>
+  </div>
 </Wraper>

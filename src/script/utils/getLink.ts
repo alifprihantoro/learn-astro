@@ -11,8 +11,12 @@ export default async function getLink() {
         e.preventDefault()
         const CURRENT_LINK = window.location.href.split('/').slice(3).join('/')
         const TARGET_LINK = GET_TAG_A.href.split('/').slice(3).join('/')
-        await routersPage({ TARGET_LINK, CURRENT_LINK })
-        await getLink()
+        const CONTENT_HTML = await routersPage({ TARGET_LINK, CURRENT_LINK })
+        const ROOT_EL = document.getElementById('root')
+        if (CONTENT_HTML !== undefined) {
+          ROOT_EL.innerHTML = CONTENT_HTML
+          await getLink()
+        }
       }
     }
   }

@@ -1,6 +1,6 @@
 ---
 title: 'Typescript: Bassic'
-slug: typescript:-bassic
+slug: typescript-bassic
 date: 2022-06-10T07:30:49+07:00
 lastmod: 2022-06-10T07:30:55+07:00
 description: 'bassic, class, typescript'
