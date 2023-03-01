@@ -18,8 +18,12 @@ import sitemap from '@astrojs/sitemap'
 // import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
+import process from 'node:process'
+console.log(process.env.npm_lifecycle_event)
+
 export default defineConfig({
   site: 'https://muryp.my.id',
+  // outDir:'./test',
   integrations: [preact({
     compat: true,
   }), tailwind({

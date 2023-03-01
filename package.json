@@ -5,9 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "build:local": "astro build && bash ./bin/buildLocal.bash",
+    "test": "",
+    "lint": "eslint ./src/**/*.{ts,astro}",
     "astro": "astro"
   },
   "overrides": {
