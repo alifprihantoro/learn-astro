@@ -1,4 +1,4 @@
 cd ./dist
 git add .
 git commit -am 'update'
-git pushall
+git remote | xargs -L1 git push --all
