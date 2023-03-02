@@ -20,7 +20,7 @@ export default function ContentMDSlug(props: Astro) {
   return HeaderBlog({ TITLE, SLUG, AUTHOR, DATE }) +
     Breadcrumbs(BREADCRUMBS_PROPS) +
     // content
-    html`<div class='prose m-5'>${Content.toString()}` +
+    html`<div class='prose m-5 break-words'>${Content.toString()}` +
     Tags({ TAGS }) +
     // comment
     html`

@@ -11,13 +11,13 @@ interface Props {
 export default function NextPrev({ NEXT_POST, PREV_POST }: Props) {
   return html`
       ${PREV_POST.TITLE !== undefined && html`
-        <a href="${PREV_POST.SLUG}">
-          <div class='btn'>${PREV_POST.TITLE}</div>
+        <a class='btn mb-3' href="${PREV_POST.SLUG}">
+          ${PREV_POST.TITLE}
         </a>
       `}
       ${NEXT_POST.TITLE !== undefined && html`
-        <a href="${NEXT_POST.SLUG}">
-          <div class='btn'>${NEXT_POST.TITLE}</div>
+        <a class='btn mb-3' href="${NEXT_POST.SLUG}">
+          ${NEXT_POST.TITLE}
         </a>
       `}
   `

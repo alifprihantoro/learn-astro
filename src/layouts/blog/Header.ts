@@ -13,8 +13,8 @@ interface Props {
 export default function HeaderBlog({ TITLE, SLUG, AUTHOR, DATE }: Props) {
   return html`
     <div class='w-[90%] m-5 p-5 bg-base-100 rounded-xl'>
-      <h2 class='font-bold text-5xl'><a href="${SLUG}">${TITLE}</a></h2>
-      <div class="mt-3 flex">
+      <h2 class='font-bold text-5xl max-md:text-3xl break-words'><a href="${SLUG}">${TITLE}</a></h2>
+      <div class="mt-3 flex max-md:block">
         <a class='inline-flex mr-5 justify-center' href="${AUTHOR.uri}">
           <span class="iconify mr-3 h-fit relative top-1 bottom-1" data-icon="pajamas:profile"></span>
           ${AUTHOR.name}
