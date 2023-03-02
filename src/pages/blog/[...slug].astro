@@ -21,5 +21,10 @@ const Content = ContentMDSlug(Astro.props as Astro)
 ---
 
 <Wrapper INFO_SEO={SEO_PROPS}>
-  <article id='root' set:html={Content}/>
+  <article id='root' set:html={Content}>
+    <script>
+      import commentToggle from '@script/comment'
+      commentToggle()
+    </script>
+  </article>
 </Wrapper>

@@ -1,4 +1,3 @@
-import commentToggle from '@script/comment'
 import routersPage from '@script/routers'
 
 export default async function getLink() {
@@ -17,7 +16,6 @@ export default async function getLink() {
         if (CONTENT_HTML !== undefined) {
           ROOT_EL.innerHTML = CONTENT_HTML
           await getLink()
-          commentToggle()
         }
       }
     }
