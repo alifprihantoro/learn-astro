@@ -19,7 +19,14 @@ export default function ContentMDSlug(props: Astro) {
   const BREADCRUMBS_PROPS = { TITLE, SLUG, TAGS }
   return HeaderBlog({ TITLE, SLUG, AUTHOR, DATE }) +
     Breadcrumbs(BREADCRUMBS_PROPS) +
-    html`<div class= 'prose m-5'>${Content.toString()}</div>`+
+    // content
+    html`<div class='prose m-5'>${Content.toString()}` +
     Tags({ TAGS }) +
+    // comment
+    html`
+<button class='btn btn-primary w-full' id='toggle-comment'>show comment</button>
+<div id='content-comment'></div>
+</div>
+` +
     NextPrev({ NEXT_POST, PREV_POST })
 }
