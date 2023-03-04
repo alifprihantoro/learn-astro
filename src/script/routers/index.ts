@@ -1,47 +1,48 @@
 import LoadingHtml from '@components/Loading'
 import regexRulesRoutes from './regex'
 import { handlerListBlog, handlerListNote, handlerSingleBlog, handlerSingleNote } from '@script/handler/blog'
-export default async function routersPage({ CURRENT_LINK, TARGET_LINK }: { CURRENT_LINK: string, TARGET_LINK: string }) {
-  const goToTargetLink = () => {
-    window.history.replaceState({}, 'muryp', `/${TARGET_LINK}`)
-  }
-  const { isHomeLink, isGoHome, isGoBlogList, isGoBlogArticle, isNotChangeLink, isGoNotesSingle, isGoNotesList, isGoNoteSingle, isGoNoteList, isGotoPage } = regexRulesRoutes({ CURRENT_LINK, TARGET_LINK })
+
+export default async function routersPage({ NEXT_LINK, PREV_LINK, isUndo }: { NEXT_LINK: string, PREV_LINK: string, isUndo?: boolean }) {
+  const { isHomeLink, isGoHome, isGoBlogList, isGoBlogArticle, isNotChangeLink, isGoNotesSingle, isGoNotesList, isGoNoteSingle, isGoNoteList, isGotoPage } = regexRulesRoutes({ PREV_LINK, NEXT_LINK })
   const ROOT_EL = document.getElementById('root')
+  isUndo && console.log('undo')
+  !isUndo && console.log('not undo')
   if (isHomeLink) {
-    window.open(TARGET_LINK, '_self')
+    !isUndo && window.open(NEXT_LINK, '_self')
     return
   }
   if (isNotChangeLink) {
     return
   }
   ROOT_EL.innerHTML = LoadingHtml()
+  !isUndo && window.open('#', '_self')
   if (isGoHome) {
-    goToTargetLink()
     const HomePage = await import('@layouts/home')
+    !isUndo && window.history.replaceState({}, 'muryp', `/${NEXT_LINK}`)
+    !isUndo && window.open(NEXT_LINK, '_self')
     return HomePage.default()
   }
-  window.open('#', '_self')
-  goToTargetLink()
+  !isUndo && window.history.replaceState({}, 'muryp', `/${NEXT_LINK}`)
   if (isGoBlogList) {
-    return await handlerListBlog(TARGET_LINK)
+    return await handlerListBlog(NEXT_LINK)
   }
   if (isGoBlogArticle) {
-    return await handlerSingleBlog(TARGET_LINK)
+    return await handlerSingleBlog(NEXT_LINK)
   }
   if (isGoNoteList) {
-    return handlerListNote({ TARGET_LINK, PATH: 'note' })
+    return handlerListNote({ NEXT_LINK, PATH: 'note' })
   }
   if (isGoNoteSingle) {
-    return handlerSingleNote({ TARGET_LINK, PATH: 'note' })
+    return handlerSingleNote({ NEXT_LINK, PATH: 'note' })
   }
   if (isGoNotesList) {
-    return handlerListNote({ TARGET_LINK, PATH: 'notes' })
+    return handlerListNote({ NEXT_LINK, PATH: 'notes' })
   }
   if (isGoNotesSingle) {
-    return handlerSingleNote({ TARGET_LINK, PATH: 'notes' })
+    return handlerSingleNote({ NEXT_LINK, PATH: 'notes' })
   }
   if (isGotoPage) {
-    return handlerSingleNote({ TARGET_LINK, PATH: 'pages' })
+    return handlerSingleNote({ NEXT_LINK, PATH: 'pages' })
   }
   return '404 notfound'
 }

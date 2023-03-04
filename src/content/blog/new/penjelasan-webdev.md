@@ -11,7 +11,7 @@ image: ""
 description: "Apa itu Web Dev dan apa saja role pekerjaan web dev"
 ---
 Asslamualaikum wr. wb
-
+[hello](#)
 ## Apa itu Web Dev dan apa saja role pekerjaan web dev
 ### Penjelasan
 **Webdev** atau **web development**, secara singkat berarti sebuah kegiatam membangun sebuah web melalui koding. Dan untuk role sendiri paling umum terbagi menjadi dua yaitu frond end dan backend. Namun tak menutup kemungkinan lebih dari dua hal tersebut, tergantung perusahaan atau organisasi yang menampung.
