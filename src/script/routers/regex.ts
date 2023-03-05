@@ -1,5 +1,5 @@
 export default function regexRulesRoutes({ NEXT_LINK, PREV_LINK }: { NEXT_LINK: string, PREV_LINK: string }) {
-  const isOnHome = PREV_LINK.match(/^(#.*|)$/i)
+  const isOnHome = PREV_LINK.match(/^#/i) || PREV_LINK === ''
   const isHomeLink = isOnHome && NEXT_LINK.match(/^#/i)
   const isGoHome = !isOnHome && NEXT_LINK.match(/^(#.*|)$/i)
   const isNotChangeLink = NEXT_LINK.match(new RegExp(`^${PREV_LINK}$`, 'i'))

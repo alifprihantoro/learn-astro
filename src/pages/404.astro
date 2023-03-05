@@ -1,0 +1,9 @@
+---
+import Wrapper from '@components/Wraper.astro'
+import { INFO_WEB } from '@configs/home'
+import NotFoundPage from '@layouts/404'
+---
+
+<Wrapper INFO_SEO={INFO_WEB}>
+  <div id='root' set:html={NotFoundPage()}/>
+</Wrapper>
