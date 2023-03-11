@@ -1,2 +1,0 @@
-- [eslint](eslint)
-- post by path
