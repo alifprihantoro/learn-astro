@@ -1,5 +1,6 @@
 import routersPage from '@script/routers'
 import regexRulesRoutes from '@script/routers/regex'
+import { has } from 'markdown-it/lib/common/utils'
 let PREV_LINK_GLOBAL = ''
 let isUndo = false
 
@@ -28,6 +29,9 @@ async function getLink(TAG: string) {
     if (isLinkChangeUi) {
       GET_TAG_A.onclick = async (e) => {
         e.preventDefault()
+        // close menu if link click
+        document.getElementsByClassName('nav-slide')[0]
+          .getElementsByTagName('input')[0].checked = false
         isUndo = false
         const PREV_LINK = window.location.href.split('/').slice(3).join('/')
         const NEXT_LINK = GET_TAG_A.href.split('/').slice(3).join('/')
