@@ -1,6 +1,7 @@
 ---
 import Seo from '@components/Seo'
 import '../assets/style/main.scss'
+import '../assets/style/nav.scss'
 import Nav from '@components/nav'
 import Footer from '@components/footer'
 import CookiesAccept from '@components/CookiesAccept'
@@ -10,7 +11,7 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
 <!DOCTYPE html>
 <html
   lang='en'
-  data-theme='dark'
+  data-theme='dark-theme'
   class='scroll-smooth selection:bg-blue-900 selection:text-white'>
   <head>
     <meta charset='UTF-8' />
@@ -27,11 +28,11 @@ const MODE = import.meta.env.NODE_ENV !== 'development'
       class='btn opacity-0 focus:opacity-100 fixed -z-[99] focus:z-[99]'
     >Menuju ke konten</a
     >
-    <!-- <Nav /> -->
+    <Nav />
     <slot />
     <Footer />
     <script>
-      import '@script/main'
+      import '../assets/script/main'
     </script>
     <script src='/iconify.js' is:raw></script>
   </body>

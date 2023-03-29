@@ -1,16 +1,16 @@
-let isLight = () => localStorage.getItem('dark-mode') === 'light'
+const CEK_LOCAL_THEME = localStorage.getItem('dark-mode') || 'system-theme'
 
-const DARK_BTN = document.getElementById('dark-btn')
-if (isLight()) {
-  document.childNodes[1].setAttribute('data-theme', 'light')
-  DARK_BTN.checked = false
+document.getElementById(CEK_LOCAL_THEME).checked = true // checked btn by localStorage
+
+const CEK_SYSTEM_THEME = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark-theme' : 'light-theme'
+if (CEK_LOCAL_THEME === 'system-theme') {
+  document.childNodes[1].setAttribute('data-theme', CEK_SYSTEM_THEME)
 }
-DARK_BTN.onchange = function() {
-  if (isLight()) {
-    localStorage.setItem('dark-mode', 'dark')
-    document.childNodes[1].setAttribute('data-theme', 'dark')
-    return
-  }
-  localStorage.setItem('dark-mode', 'light')
-  document.childNodes[1].setAttribute('data-theme', 'light')
+
+// check is change theme
+const DARK_BTN = document.getElementById('theme-mode')
+DARK_BTN.onchange = function(e) {
+  const RESULT_CHANGE = e.target.id
+  localStorage.setItem('dark-mode', RESULT_CHANGE)
+  document.childNodes[1].setAttribute('data-theme', RESULT_CHANGE)
 }
