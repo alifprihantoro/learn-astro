@@ -1,6 +1,6 @@
 import routersPage from '@script/routers'
 import regexRulesRoutes from '@script/routers/regex'
-import { has } from 'markdown-it/lib/common/utils'
+
 let PREV_LINK_GLOBAL = ''
 let isUndo = false
 
