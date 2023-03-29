@@ -12,9 +12,9 @@ export default function Nav() {
           sm:mr-0 z-[99]'>
           <ul className='max-sm:bg-neutral w-fit menu menu-horizontal rounded-box m-auto'>
             <NavList />
-            <Dropdown />
           </ul>
         </div>
+        <Dropdown />
       </nav>
     </div>
   )

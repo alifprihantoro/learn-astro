@@ -1,15 +1,16 @@
 .nav-slide {
   @apply h-16 w-10;
   & > div {
-    @apply bg-gray-900 w-full md:w-1/2 pt-14 h-screen fixed right-0 transition-transform ease-in duration-500 transform translate-x-full top-0 z-0;
+    @apply bg-gray-900 w-full h-screen fixed right-0 transition-transform 
+    ease-in duration-500 transform translate-x-full top-0 z-0 p-3 md:w-1/2;
   }
   & > input {
     @apply hidden;
     &:checked ~ div {
-      @apply transform translate-x-0;
+      @apply transform translate-x-0 z-[99];
     }
-    &:checked ~ label > div {
-      @apply bg-white;
+    &:checked ~ label {
+      @apply fixed right-3 top-3 z-[9999] transition-transform duration-500;
     }
     &:checked ~ label > div:nth-child(1) {
       @apply transform translate-y-[10px] rotate-45;
@@ -22,10 +23,10 @@
     }
   }
   & > label {
-    @apply absolute cursor-pointer w-10 h-10 right-4 top-4 flex flex-col justify-between bg-neutral p-2 rounded;
+    @apply cursor-pointer w-10 h-10 right-4 top-4 flex
+    flex-col justify-between bg-neutral p-2 rounded;
     & > div {
-      @apply h-1 bg-black transition duration-500;
-      z-index: 999;
+      @apply h-1 bg-white transition duration-500 z-[999];
     }
   }
 }

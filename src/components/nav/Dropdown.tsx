@@ -10,15 +10,16 @@ export default function Dropdown() {
         <div></div>
         <div></div>
       </label>
-      <div >
-        <h2 tabIndex={0} className='font-bold text-4xl my-5 border-b-2'>NAVIGATION</h2>
-        <ul>
+      <div>
+        <h2 tabIndex={0} className='text-4xl border-b-2 text-left'>NAVIGATION</h2>
+        <ul className='menu'>
           {MAIN_NAV_LIST_DROPDOWN.map(({ link, title }, i) => {
             return (
               <li key={i}><a className='w-full hover:bg-primary' href={link} alt={`link menuju ${title}`}>{title}</a></li>
             )
           })}
         </ul>
+        <h2 tabIndex={0} className='text-xl border-b-2 text-left'>THEME SETTING :</h2>
         <DarkBtn />
       </div>
     </div>
