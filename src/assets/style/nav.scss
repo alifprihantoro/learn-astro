@@ -24,7 +24,7 @@
   }
   & > label {
     @apply cursor-pointer w-10 h-10 right-4 top-4 flex
-    flex-col justify-between bg-neutral p-2 rounded;
+    flex-col justify-between bg-primary p-2 rounded;
     & > div {
       @apply h-1 bg-white transition duration-500 z-[999];
     }

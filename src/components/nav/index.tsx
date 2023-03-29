@@ -7,10 +7,8 @@ export default function Nav() {
     <div className='w-full sticky right-0 top-0 z-50'>
       <nav className='navbar rounded-box bg-base-300 text-neutral-content m-auto w-full md:w-[900px]'>
         <HeaderNav />
-        <div className='max-sm:fixed max-sm:bottom-0 max-sm:right-0
-          max-sm:w-screen text-center sm:ml-auto sm:w-fit
-          sm:mr-0 z-[99]'>
-          <ul className='max-sm:bg-neutral w-fit menu menu-horizontal rounded-box m-auto'>
+        <div className='text-center ml-auto w-fit mr-0'>
+          <ul className='w-fit menu menu-horizontal m-auto'>
             <NavList />
           </ul>
         </div>

@@ -3,7 +3,8 @@ import DarkBtn from './darkBtn'
 
 export default function Dropdown() {
   return (
-    <div className='nav-slide'>
+    <div className='nav-slide max-sm:fixed max-sm:bottom-3
+      max-sm:right-3 max-sm:w-screen '>
       <input type='checkbox' id='menu-dropdown' />
       <label htmlFor='menu-dropdown' tabIndex={0} >
         <div></div>
