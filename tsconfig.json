@@ -22,7 +22,7 @@
         "src/layouts/*"
       ],
       "@script/*": [
-        "src/script/*"
+        "src/assets/script/*"
       ]
     }
   }

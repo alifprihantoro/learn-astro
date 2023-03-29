@@ -2,8 +2,18 @@
 import Home from '@layouts/home'
 import Wrapper from '@components/Wraper.astro'
 import { INFO_WEB } from '@configs/home'
+import '../assets/style/nav.scss'
 ---
 
 <Wrapper INFO_SEO={INFO_WEB}>
-  <div id='root' set:html={Home()}/>
+  <header>
+    <input type='checkbox' id='menyAvPaa' class='hidden' />
+    <label id='burger' for='menyAvPaa'>
+      <div></div>
+      <div></div>
+      <div></div>
+    </label>
+    <nav id='meny'>hello</nav>
+  </header>
+  <div id='root' set:html={Home()} />
 </Wrapper>

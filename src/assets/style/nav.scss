@@ -1,0 +1,52 @@
+* {
+  @apply m-0;
+}
+
+html {
+  @apply text-base ;
+}
+
+header {
+  @apply border-b-2 border-gray-300 h-16;
+}
+
+.burger-wrapper {
+  @apply cursor-pointer;
+}
+
+#meny {
+  @apply bg-gray-900 w-full h-screen fixed right-0 transition-transform ease-in duration-500 transform translate-x-full top-0 z-0;
+}
+
+#menyAvPaa {
+  @apply hidden;
+}
+
+#menyAvPaa:checked ~ #meny {
+  @apply transform translate-x-0;
+}
+
+#burger {
+  @apply absolute cursor-pointer w-8 h-8 right-4 top-4 flex flex-col justify-between;
+}
+
+#burger > div {
+  @apply h-1 bg-black transition duration-500;
+  z-index: 999;
+}
+
+#menyAvPaa:checked ~ #burger > div {
+  @apply bg-white;
+}
+
+#menyAvPaa:checked ~ #burger > div:nth-child(1) {
+  @apply transform translate-y-[14px] rotate-45;
+}
+
+#menyAvPaa:checked ~ #burger > div:nth-child(2) {
+  @apply opacity-0;
+}
+
+#menyAvPaa:checked ~ #burger > div:nth-child(3) {
+  @apply transform -translate-y-[14px] -rotate-45;
+}
