@@ -5,7 +5,7 @@ import NavList from './list'
 export default function Nav() {
   return (
     <div className='w-full sticky right-0 top-0 z-50'>
-      <nav className='navbar rounded-box bg-base-300 text-neutral-content m-auto w-full md:w-[900px]'>
+      <nav className='navbar rounded-box bg-base-300 text-neutral-content m-auto w-full md:w-[900px] [&>*]:text-white/90'>
         <HeaderNav />
         <div className='text-center ml-auto w-fit mr-0'>
           <ul className='w-fit menu menu-horizontal m-auto'>

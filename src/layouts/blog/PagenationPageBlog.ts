@@ -8,14 +8,14 @@ export default function PagenationPageBlog({ PAGE_PROPS }: props) {
   return html`
 <div class='w-fit m-auto text-center leading-[4rem] max-md:[&>*]:w-full'>
   ${currentPage != 1 && html`
-      <a class='btn bg-primary/50 hover:bg-primary/30 mx-2' href='/blog'> First Page </a>
-      <a class='btn bg-primary/50 hover:bg-primary/30 mx-2' href=${url.prev.replace(/(.*)\.json$/i, '$1')}> prev </a>
+      <a class='btn bg-primary text-white/90 border-primary hover:bg-primary hover:translate-x-1 hover:-translate-y-1 mx-2' href='/blog'> First Page </a>
+      <a class='btn bg-primary text-white/90 border-primary hover:bg-primary hover:translate-x-1 hover:-translate-y-1 mx-2' href=${url.prev.replace(/(.*)\.json$/i, '$1')}> prev </a>
     `}
-      <div class='btn hover:bg-neutral mx-2'>current page : ${currentPage}</div>
-      <div class='btn hover:bg-neutral mx-2'>total page : ${lastPage}</div>
+      <div class='btn btn-secondary hover:bg-secondary text-white/80 mx-2'>current page : ${currentPage}</div>
+      <div class='btn btn-secondary hover:bg-secondary text-white/80 mx-2'>total page : ${lastPage}</div>
   ${currentPage != lastPage && html`
-      <a class='btn bg-primary/50 hover:bg-primary/30 mx-2' href="${url.next.replace(/(.*)\.json$/i, '$1')}"> next </a>
-      <a class='btn bg-primary/50 hover:bg-primary/30 mx-2' href="/blog/${lastPage}"> Last Page </a>
+      <a class='btn bg-primary border-primary text-white/90 hover:bg-primary hover:translate-x-1 hover:-translate-y-1 mx-2' href="${url.next.replace(/(.*)\.json$/i, '$1')}"> next </a>
+      <a class='btn bg-primary border-primary text-white/90 hover:bg-primary hover:translate-x-1 hover:-translate-y-1 mx-2' href="/blog/${lastPage}"> Last Page </a>
     `}
 </div>
 `}

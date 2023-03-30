@@ -8,7 +8,7 @@ export default function Tags({ TAGS }: props) {
     <div>
     ${TAGS !== undefined &&
       TAGS.map((name) => {
-        return html`<a class='btn m-3'>${name}</a>`
+        return html`<a class='btn m-3 btn-primary'>${name}</a>`
       })}
     </div>
   `

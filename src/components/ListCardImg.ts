@@ -5,7 +5,7 @@ export default function ListCardImg(list: content[]) {
   return html`
       ${list.map(({ title, img, link }) => {
     return html`
-      <div class="card card-compact w-[90%] max-w-sm bg-base-100 shadow-xl m-5">
+      <div class="card card-compact w-[90%] max-w-sm shadow-md shadow-base-300 rounded-[5px] m-5">
         <figure>
           <img tabIndex="0" class='w-full object-cover h-48' src="${img}" alt="${title}" />
         </figure>

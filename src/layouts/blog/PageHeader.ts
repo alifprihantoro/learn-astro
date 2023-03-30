@@ -6,7 +6,7 @@ interface props {
 export default function PageHeader({ TOTAL }: props) {
   return html`
       <h2 class='font-bold text-4xl mx-5 my-5 border-b-2 w-full'>Blog</h2>
-      <div class='alert alert-info shadow-lg'>
+      <div class='alert bg-primary text-white/80 shadow-lg'>
         <div>
           <svg
             xmlns='http://www.w3.org/2000/svg'

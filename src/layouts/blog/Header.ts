@@ -12,7 +12,7 @@ interface Props {
 }
 export default function HeaderBlog({ TITLE, SLUG, AUTHOR, DATE }: Props) {
   return html`
-    <div class='w-[90%] m-5 p-5 bg-base-100 rounded-xl'>
+    <div class='w-[90%] m-5 p-5 bg-secondary text-white/80 rounded-xl'>
       <h2 class='font-bold text-5xl max-md:text-3xl break-words'><a href="${SLUG}">${TITLE}</a></h2>
       <div class="mt-3 flex max-md:block">
         <a class='inline-flex mr-5 justify-center' href="${AUTHOR.uri}">
