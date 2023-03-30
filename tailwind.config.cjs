@@ -53,7 +53,7 @@ module.exports = {
           '@apply bg-base-100 m-5 py-3 px-5 rounded-md w-fit hover:-translate-y-3 transition-all duration-200': {},
         },
         '.content': {
-          '@apply flex p-[15px] w-[80%] shadow-md shadow-base-300 rounded-[5px] my-[25px] mx-auto [&>h3]:text-xl': {},
+          '@apply flex p-[15px] max-md:w-full w-[80%] shadow-md shadow-base-300 rounded-[5px] my-[25px] mx-auto [&>h3]:text-xl': {},
           '.date': {
             '@apply mr-[30px] w-[64px] text-center': {},
           },
