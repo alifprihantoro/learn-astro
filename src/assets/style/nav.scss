@@ -1,7 +1,7 @@
 .nav-slide {
   @apply h-16 w-10;
   & > div {
-    @apply fixed right-0 top-0 duration-500 transition-opacity;
+    @apply fixed right-0 top-0 duration-500 transition-opacity w-0 h-0;
     & > div:first-child {
       @apply bg-secondary w-full h-screen p-3 md:w-1/2 ml-auto mr-0
       transition-transform ease-in transform duration-500 translate-x-full;

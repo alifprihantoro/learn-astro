@@ -42,6 +42,7 @@
     "@types/markdown-it": "^12.2.3",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
+    "codeceptjs": "^3.4.1",
     "daisyui": "^2.47.0",
     "eslint": "^8.0.1",
     "eslint-config-standard-with-typescript": "^34.0.0",
@@ -54,6 +55,7 @@
     "markdown-it-checkbox": "^1.1.0",
     "markdown-it-named-headings": "^1.1.0",
     "minify": "^9.2.0",
+    "playwright": "^1.32.1",
     "sass": "^1.57.1",
     "sharp": "^0.31.3",
     "typescript": "*"
