@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 yarn.lock
 .astro
+/test-results/
+/playwright-report/
+/playwright/.cache/
