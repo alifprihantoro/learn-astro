@@ -1,29 +1,38 @@
-import { Page, expect } from '@playwright/test'
+import type { Page } from '@playwright/test'
+import { inViewPort, inViewPortList, notInViewPort, notInViewPortList } from '../helper/viewPort'
 
+const NAV_CLASS = '.nav-slide'
+const LIST_ITEM = [
+  'blog")',
+  'note old")',
+  'note new")',
+  'about")',
+  'privacy policy")',
+  'tech")',
+]
+const LIST_THEME = [
+  'light theme")',
+  'dark theme")',
+  'system theme")',
+]
+/**
+* cek is content in navigation is on view port
+* @param page Page get from page playwright
+*/
 export async function contentNavVisible(page: Page) {
-  expect(await page.isVisible('h2:has-text("navigation")')).toBeTruthy()
-  expect(await page.isVisible('ul > li:has-text("blog")')).toBeTruthy()
-  expect(await page.isVisible('ul > li:has-text("note old")')).toBeTruthy()
-  expect(await page.isVisible('ul > li:has-text("note new")')).toBeTruthy()
-  expect(await page.isVisible('ul > li:has-text("about")')).toBeTruthy()
-  expect(await page.isVisible('ul > li:has-text("privacy policy")')).toBeTruthy()
-  expect(await page.isVisible('ul > li:has-text("tech")')).toBeTruthy()
-  expect(await page.isVisible('h2:has-text("theme setting")')).toBeTruthy()
-  expect(await page.isVisible('label > span:has-text("light theme")')).toBeTruthy()
-  expect(await page.isVisible('label > span:has-text("dark theme")')).toBeTruthy()
-  expect(await page.isVisible('label > span:has-text("system theme")')).toBeTruthy()
+  await inViewPort(page, `${NAV_CLASS} h2:has-text("NAVIGATION")`)
+  await inViewPortList(page, LIST_ITEM, `${NAV_CLASS} ul > li a:has-text("`)
+  await inViewPort(page, `${NAV_CLASS} h2:has-text("theme setting")`)
+  await inViewPortList(page, LIST_THEME, `${NAV_CLASS} label > span:has-text("`)
 }
 
+/**
+* cek is content in navigation is not on view port
+* @param page Page get from page playwright
+*/
 export async function contentNavNotVisible(page: Page) {
-  expect(await page.isHidden('h2:has-text("navigation")')).toBeTruthy()
-  expect(await page.isHidden('ul > li:has-text("blog")')).toBeTruthy()
-  expect(await page.isHidden('ul > li:has-text("note old")')).toBeTruthy()
-  expect(await page.isHidden('ul > li:has-text("note new")')).toBeTruthy()
-  expect(await page.isHidden('ul > li:has-text("about")')).toBeTruthy()
-  expect(await page.isHidden('ul > li:has-text("privacy policy")')).toBeTruthy()
-  expect(await page.isHidden('ul > li:has-text("tech")')).toBeTruthy()
-  expect(await page.isHidden('h2:has-text("theme setting")')).toBeTruthy()
-  expect(await page.isHidden('label > span:has-text("light theme")')).toBeTruthy()
-  expect(await page.isHidden('label > span:has-text("dark theme")')).toBeTruthy()
-  expect(await page.isHidden('label > span:has-text("system theme")')).toBeTruthy()
+  await notInViewPort(page, `${NAV_CLASS} h2:has-text("NAVIGATION")`)
+  await notInViewPortList(page, LIST_ITEM, `${NAV_CLASS} ul > li a:has-text("`)
+  await notInViewPort(page, `${NAV_CLASS} h2:has-text("theme setting")`)
+  await notInViewPortList(page, LIST_THEME, `${NAV_CLASS} label > span:has-text("`)
 }
