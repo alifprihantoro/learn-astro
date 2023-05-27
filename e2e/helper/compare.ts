@@ -6,10 +6,10 @@ import Jimp from 'jimp'
 * @param path2 image url compare 2
 * @param out image url result compare
 */
-export default async function compareImg(path1: string, path2: string, out: string) {
+export default async function compareImg(path1: string, path2: string, out: false | string) {
   const jimage1 = await Jimp.read(path1)
   const jimage2 = await Jimp.read(path2)// Perceived distance
   const diff = Jimp.diff(jimage1, jimage2, .1)
-  diff.image.write(out)
+  out && diff.image.write(out)
   return diff.percent == 0 ? true : false
 }
