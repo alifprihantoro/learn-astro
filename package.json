@@ -9,6 +9,7 @@
     "build": "astro build",
     "build:local": "build && bash ./bin/buildLocal.bash",
     "test": "playwright test ./e2e/**/*.spec.ts",
+    "test:ui": "playwright test --ui",
     "test:prod": "build && test",
     "lint": "eslint ./src/**/*.{ts,astro}"
   },
