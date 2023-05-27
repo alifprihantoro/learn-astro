@@ -3,7 +3,7 @@ import { html } from '@utils/parser'
 
 export default function AboutHome() {
   return html`
-    <div class='md:w-[50%] md:p-[5%] mx-5' id='about'>
+    <div class='md:w-[50%] mx-5 pt-16' id='about'>
       <h2 tabIndex="0" id='About' class='font-bold text-4xl my-5 border-b-2'>${ABOUT_HOME.title}</h2>
       <p tabIndex="0" >${ABOUT_HOME.body}</p>
       <a href=${ABOUT_HOME.btn.link} class='btn btn-secondary text-white/90' rel='nofollow' target="_blank" >${ABOUT_HOME.btn.title}</a>

@@ -3,7 +3,7 @@ import { html } from '@utils/parser'
 
 export default function ContactHome() {
   return html`
-    <div class='md:w-[50%] md:p-[5%] mx-5' id='contact'>
+    <div class='md:w-[50%] mx-5 pt-16' id='contact'>
       <h2 id='contacts' class='font-bold text-4xl my-5 border-b-2' tabIndex="0" >
         contact
       </h2>
