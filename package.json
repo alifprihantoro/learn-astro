@@ -6,6 +6,7 @@
   "scripts": {
     "astro": "astro",
     "dev": "astro dev",
+    "preview": "http-server -p 3000 dist",
     "build": "astro build",
     "build:local": "build && bash ./bin/buildLocal.bash",
     "test": "playwright test",
@@ -54,6 +55,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.1",
     "highlight.js": "^11.7.0",
+    "http-server": "^14.1.1",
     "jimp": "^0.22.8",
     "markdown-it": "^13.0.1",
     "markdown-it-checkbox": "^1.1.0",

@@ -16,6 +16,8 @@ for (const [name, viewport] of VIEWPORTS) {
       await page.click('div.content')
       await page.waitForSelector('button:has-text("show comment")')
       await page.getByRole('button', { name: 'show comment' }).click()
+      await page.waitForLoadState('networkidle')
+      await page.waitForLoadState('domcontentloaded')
       await expect(page.frameLocator('iframe[title="Comments"]').locator('.gsc-comment-box-bottom')).toBeVisible()
       await page.frameLocator('iframe[title="Comments"]').locator('.gsc-comment-box-bottom').click()
       await page.screenshot({ path: `${PATH_SS}1-open-comment.png` })
