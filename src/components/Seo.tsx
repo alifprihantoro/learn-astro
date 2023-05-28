@@ -21,7 +21,7 @@ export default function Seo({ seo }: PROPS_SEO) {
       <meta itemProp='description' content={DESCRIPTION} />
       <meta property='og:description' content={DESCRIPTION} />
       <meta name='twitter:description' content={DESCRIPTION} />
-      <base href={LINK} />
+      {/* <base href={LINK} /> */}
       <link rel='canonical' href={LINK} itemProp='url' />
       <meta name='url' content={LINK} />
       <meta name='twitter:url' content={LINK} />
