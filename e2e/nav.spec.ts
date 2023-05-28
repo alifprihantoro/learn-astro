@@ -16,22 +16,23 @@ for (const [name, viewport] of VIEWPORTS) {
       test.use({ colorScheme: 'light' })
       test('open and close menu', async ({ page, browserName }) => {
         const PATH_SS = `${`${OUTPUT + browserName}/${name}`}/navigation/`
-        await contentNavNotVisible(page)
+        await contentNavNotVisible(page, 'first')
         await page.click(NAV_BTN)
         // Wait for animation
         await page.waitForSelector(NAV_BTN)
         await page.screenshot({ path: `${PATH_SS}open.png` })
-        await contentNavVisible(page)
+        await contentNavVisible(page, 'open')
         // Klik to close
         await page.click(NAV_BTN)
         // Wait for animation
-        await page.waitForSelector(NAV_BTN)
+        await page.waitForTimeout(3000)
         // Cek cek is dropdown closed
         await page.screenshot({ path: `${PATH_SS}close.png` })
         const compare1 = await compareImg(`${PATH_SS}open.png`, `${PATH_SS}close.png`, `${PATH_SS}compare1.png`)
         // image open and close must be different
-        expect(compare1).toBeFalsy()
-        await contentNavNotVisible(page)
+        await contentNavNotVisible(page, 'close')
+        expect(compare1, 'cek nav open and close screenshot').toBeFalsy()
+        // await expect(page.locator('.nav-slide label span:has-text("light theme")'), 'cek light theme').not.toBeVisible()
       })
     })
     // cek theme change

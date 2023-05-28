@@ -19,20 +19,20 @@ const LIST_THEME = [
 * cek is content in navigation is on view port
 * @param page Page get from page playwright
 */
-export async function contentNavVisible(page: Page) {
-  await inViewPort(page, `${NAV_CLASS} h2:has-text("NAVIGATION")`)
-  await inViewPortList(page, LIST_ITEM, `${NAV_CLASS} ul > li a:has-text("`)
-  await inViewPort(page, `${NAV_CLASS} h2:has-text("theme setting")`)
-  await inViewPortList(page, LIST_THEME, `${NAV_CLASS} label > span:has-text("`)
+export async function contentNavVisible(page: Page, description: string) {
+  await inViewPort(page, `${NAV_CLASS} h2:has-text("NAVIGATION")`, `${description} : cek have nav`)
+  await inViewPortList(page, LIST_ITEM, `${NAV_CLASS} ul > li a:has-text("`, `${description} : cek have list `)
+  await inViewPort(page, `${NAV_CLASS} h2:has-text("theme setting")`, `${description} : cek heading`)
+  await inViewPortList(page, LIST_THEME, `${NAV_CLASS} label > span:has-text("`, `${description} : cek have theme ceckbox `)
 }
 
 /**
 * cek is content in navigation is not on view port
 * @param page Page get from page playwright
 */
-export async function contentNavNotVisible(page: Page) {
-  await notInViewPort(page, `${NAV_CLASS} h2:has-text("NAVIGATION")`)
-  await notInViewPortList(page, LIST_ITEM, `${NAV_CLASS} ul > li a:has-text("`)
-  await notInViewPort(page, `${NAV_CLASS} h2:has-text("theme setting")`)
-  await notInViewPortList(page, LIST_THEME, `${NAV_CLASS} label > span:has-text("`)
+export async function contentNavNotVisible(page: Page, description: string) {
+  await notInViewPort(page, `${NAV_CLASS} h2:has-text("NAVIGATION")`, `${description} : cek have no nav`)
+  await notInViewPortList(page, LIST_ITEM, `${NAV_CLASS} ul > li a:has-text("`, `${description} : cek have no list `)
+  await notInViewPort(page, `${NAV_CLASS} h2:has-text("theme setting")`, `${description} : cek no heading`)
+  await notInViewPortList(page, LIST_THEME, `${NAV_CLASS} label span:has-text("`, `${description} : cek have no theme ceckbox `)
 }
