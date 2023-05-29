@@ -29,7 +29,7 @@ jobs:
           git clone --depth=1 https://github.com/muryp/content
           mkdir src/content
           mv content/note content/notes content/blog content/pages src/content
-          rm content
+          rm -rf content
       - name: build
         run: yarn build
       - name: Upload Pages Artifact
