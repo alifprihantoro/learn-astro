@@ -25,7 +25,7 @@ export default function ContentMDSlug(props: Astro) {
     // comment
     html`
 <button class='btn btn-primary w-full' id='toggle-comment'>show comment</button>
-<div id='content-comment'></div>
+<div id='content-comment' class='hidden'></div>
 </div>
 ` +
     NextPrev({ NEXT_POST, PREV_POST })

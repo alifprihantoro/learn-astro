@@ -22,7 +22,7 @@ const inViewPort = async (page: Page, locator: string, description: string) => a
 * ```
 */
 const inViewPortList = async (page: Page, data: string[], parent: string, description: string) => {
-  data.forEach(async (e, i) => await inViewPort(page, parent + e, description + i))
+  return data.forEach(async (e, i) => await inViewPort(page, parent + e, description + i))
 }
 /**
 * cek is not in user screen contain element
@@ -46,6 +46,6 @@ const notInViewPort = async (page: Page, locator: string, description: string) =
 * ```
 */
 const notInViewPortList = async (page: Page, data: string[], parent: string, description: string) => {
-  data.forEach(async (e, i) => await notInViewPort(page, parent + e, description + i))
+  return data.forEach(async (e, i) => await notInViewPort(page, parent + e, description + i))
 }
 export { inViewPort, inViewPortList, notInViewPort, notInViewPortList }

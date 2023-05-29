@@ -2,9 +2,8 @@ export default function commentToggle() {
   let isClick = false
   const ELEMENT_COMMENT = document.getElementById('content-comment')
   document.getElementById('toggle-comment').onclick = () => {
-    if (isClick) {
-      ELEMENT_COMMENT.classList.toggle('hidden')
-    } else {
+    ELEMENT_COMMENT.classList.toggle('hidden')
+    if (!isClick) {
       isClick = true
       const script = document.createElement('script')
       script.src = 'https://giscus.app/client.js'

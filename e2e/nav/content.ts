@@ -34,5 +34,5 @@ export async function contentNavNotVisible(page: Page, description: string) {
   await notInViewPort(page, `${NAV_CLASS} h2:has-text("NAVIGATION")`, `${description} : cek have no nav`)
   await notInViewPortList(page, LIST_ITEM, `${NAV_CLASS} ul > li a:has-text("`, `${description} : cek have no list `)
   await notInViewPort(page, `${NAV_CLASS} h2:has-text("theme setting")`, `${description} : cek no heading`)
-  await notInViewPortList(page, LIST_THEME, `${NAV_CLASS} label span:has-text("`, `${description} : cek have no theme ceckbox `)
+  await notInViewPortList(page, LIST_THEME, 'label span:has-text("', `${description} : cek have no theme ceckbox `)
 }

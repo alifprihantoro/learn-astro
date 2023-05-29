@@ -10,6 +10,8 @@ import { defineConfig, devices } from '@playwright/test'
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  timeout: 5 * 60 * 1000,
+  globalTimeout: process.env.CI ? 60 * 60 * 1000 : undefined,
   testDir: './e2e',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -21,7 +23,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: 'html',
-  reporter:[
+  reporter: [
     // ['json'],
     ['html'],
   ],
