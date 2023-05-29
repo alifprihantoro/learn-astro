@@ -1,0 +1,38 @@
+.nav-slide {
+  @apply h-16 w-10;
+  & > div {
+    @apply fixed right-0 top-0 duration-500 transition-opacity w-0 h-0;
+    & > div:first-child {
+      @apply bg-secondary w-full h-screen p-3 md:w-1/2 ml-auto mr-0
+      transition-transform ease-in transform duration-500 translate-x-full;
+    }
+  }
+  & > input {
+    @apply hidden;
+    &:checked ~ div {
+      @apply bg-black/30 w-full z-[99];
+      & > div:first-child {
+        @apply transform translate-x-0;
+      }
+    }
+    &:checked ~ label {
+      @apply fixed right-3 top-3 z-[9999] transition-transform duration-500;
+    }
+    &:checked ~ label > div:nth-child(1) {
+      @apply transform translate-y-[10px] rotate-45;
+    }
+    &:checked ~ label > div:nth-child(2) {
+      @apply opacity-0;
+    }
+    &:checked ~ label > div:nth-child(3) {
+      @apply transform -translate-y-[10px] -rotate-45;
+    }
+  }
+  & > label {
+    @apply cursor-pointer w-10 h-10 right-4 top-4 flex
+    flex-col justify-between bg-primary p-2 rounded;
+    & > div {
+      @apply h-1 bg-white transition duration-500 z-[999];
+    }
+  }
+}

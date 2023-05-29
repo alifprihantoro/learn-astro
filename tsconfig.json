@@ -1,0 +1,29 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "importsNotUsedAsValues": "error",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@configs/*": [
+        "src/configs/*"
+      ],
+      "@Mytypes/*": [
+        "src/types/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@script/*": [
+        "src/assets/script/*"
+      ]
+    }
+  }
+}

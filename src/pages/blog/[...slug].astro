@@ -1,0 +1,30 @@
+---
+import Wrapper from '@components/Wraper.astro'
+import ContentMDSlug from '@components/content'
+import getPropsBlogs from '@utils/getPropsBlogs'
+import type { Astro } from '@Mytypes/blogProps'
+import nextPrevPost from '@utils/nextPrevPost'
+
+export async function getStaticPaths() {
+  let GET_POST_LIST = await Astro.glob('../../content/blog/**/*.md')
+  return nextPrevPost(getPropsBlogs(GET_POST_LIST))
+}
+
+const { TITLE, SLUG, DESCRIPTION } = Astro.props as Astro
+const SEO_PROPS = {
+  TITLE: TITLE,
+  LINK: `/blog/${SLUG}`,
+  IMG: '',
+  DESCRIPTION: TITLE + DESCRIPTION,
+}
+const Content = ContentMDSlug(Astro.props as Astro)
+---
+
+<Wrapper INFO_SEO={SEO_PROPS}>
+  <article id='root' set:html={Content}>
+    <script>
+      import commentToggle from '@script/comment'
+      commentToggle()
+    </script>
+  </article>
+</Wrapper>

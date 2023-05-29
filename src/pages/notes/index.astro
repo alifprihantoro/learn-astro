@@ -1,0 +1,33 @@
+---
+import Wraper from '@components/Wraper.astro'
+import { INFO_WEB } from '@configs/home'
+import pathMd2Url from '@utils/pathMd2Url'
+
+const posts = await Astro.glob('../../content/notes/**/*.md')
+const postsReplace = posts.map((post) => {
+  const slug = pathMd2Url(post.file)
+  return slug
+})
+---
+
+<Wraper INFO_SEO={INFO_WEB}>
+  <div id='root'>
+    <main class='flex flex-wrap mx-10'>
+      {
+        postsReplace.map((slug) => {
+          const SPLIT_SLUG = slug.split('/')
+          const TITLE = SPLIT_SLUG[SPLIT_SLUG.length - 2]
+          if (SPLIT_SLUG[SPLIT_SLUG.length - 1] === 'list') {
+            return (
+              <div class='note-list'>
+                <h2 class='card-title'>
+                  <a href={`./notes/${slug}`}>{TITLE}</a>
+                </h2>
+              </div>
+            )
+          }
+        })
+      }
+    </main>
+  </div>
+</Wraper>

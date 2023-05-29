@@ -1,0 +1,28 @@
+---
+import Wraper from '@components/Wraper.astro'
+import BlogArticle from '@layouts/blog'
+import { INFO_WEB } from '@configs/home'
+// import '../../style/list.scss'
+import getPropsBlogs from '@utils/getPropsBlogs'
+import type { Pagenation } from '@Mytypes/blogProps'
+
+export async function getStaticPaths({ paginate }) {
+  const GET_POST_LIST = await Astro.glob('../../content/blog/**/*.md')
+  const POST_SORT = getPropsBlogs(GET_POST_LIST).map(({ props }) => {
+    const { TITLE, DATE, SLUG, DESCRIPTION } = props
+    return {
+      TITLE,
+      DESCRIPTION,
+      SLUG,
+      DATE,
+    }
+  })
+  return paginate(POST_SORT, { pageSize: 5 })
+}
+
+const PAGE_PROPS = Astro.props.page as Pagenation
+---
+
+<Wraper INFO_SEO={INFO_WEB}>
+  <div id='root' set:html={BlogArticle(PAGE_PROPS)} />
+</Wraper>
