@@ -25,10 +25,7 @@ jobs:
       - name: install
         run: yarn
       - name: Clone Content
-        uses: actions/checkout@v3
-        with:
-          repository: muryp/content
-          path: src/
+        run: git clone --depth=1 https://github.com/muryp/content src/content
       - name: build
         run: yarn build
       - name: Upload Pages Artifact
