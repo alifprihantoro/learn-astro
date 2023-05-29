@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alifprihantoro-learn-astro.github.io/learn-astro/sitemap-index.xml
