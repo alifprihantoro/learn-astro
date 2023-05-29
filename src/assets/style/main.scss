@@ -1,0 +1,12 @@
+@use './font';
+@use './svg';
+@use './scroll';
+h1,h2 {
+  @apply font-Rokkit;
+}
+h3,h4 {
+  @apply font-Lato font-bold;
+}
+:root{
+  @apply bg-base-200 text-neutral;
+}

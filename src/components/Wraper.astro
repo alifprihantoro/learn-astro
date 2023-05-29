@@ -1,0 +1,39 @@
+---
+import Seo from '@components/Seo'
+import '../assets/style/main.scss'
+import '../assets/style/nav.scss'
+import Nav from '@components/nav'
+import Footer from '@components/footer'
+import CookiesAccept from '@components/CookiesAccept'
+const { INFO_SEO } = Astro.props
+const MODE = import.meta.env.NODE_ENV !== 'development'
+---
+<!DOCTYPE html>
+<html
+  lang='en'
+  data-theme='dark-theme'
+  class='scroll-smooth selection:bg-blue-900 selection:text-white'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    {MODE && <Seo seo={INFO_SEO} />}
+    <link rel='stylesheet' href='/hi.css' />
+  </head>
+  <body class='w-full md:w-[900px] mx-auto bg-base-300/30 font-Lato z-0'>
+    <CookiesAccept />
+    <a
+      href='#content'
+      tabindex='1'
+      class='btn opacity-0 focus:opacity-100 fixed -z-[99] focus:z-[99]'
+    >Menuju ke konten</a
+    >
+    <Nav />
+    <slot />
+    <Footer />
+    <script>
+      import '../assets/script/main'
+    </script>
+    <script src='/iconify.js' is:raw></script>
+  </body>
+</html>

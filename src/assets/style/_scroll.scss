@@ -1,0 +1,19 @@
+/* scrollbar */
+::-webkit-scrollbar {
+  height: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-base-300 bg-opacity-75 rounded-xl;
+}
+
+::-webkit-scrollbar {
+  @apply bg-white bg-opacity-[.1];
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+

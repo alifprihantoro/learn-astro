@@ -1,0 +1,25 @@
+// pembungkus
+.content {
+  @apply flex p-[15px] w-[80%] shadow-md shadow-base-300;
+  border-radius: 5px;
+  margin: 25px auto !important;
+  h3{
+    @apply text-xl;
+  }
+}
+
+.myread {
+  @apply w-full text-left;
+  // tanggal
+   .date {
+     @apply mr-[30px] w-[64px] text-center;
+    .day {
+      @apply font-semibold leading-[.45em] block;
+      font-size: 3em;
+      margin: 20px auto;
+    }
+  }
+  div:hover {
+      transform: translate(10px, -10px);
+    }
+}

@@ -1,0 +1,9 @@
+---
+import Home from '@layouts/home'
+import Wrapper from '@components/Wraper.astro'
+import { INFO_WEB } from '@configs/home'
+---
+
+<Wrapper INFO_SEO={INFO_WEB}>
+  <div id='root' set:html={Home()} />
+</Wrapper>
