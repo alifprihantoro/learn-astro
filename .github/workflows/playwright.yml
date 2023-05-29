@@ -32,10 +32,8 @@ jobs:
       with:
         repository: muryp/content
         path: src/
-    - name: Build web
-      run: yarn build
     - name: Run Playwright tests
-      run: yarn playwright test
+      run: yarn playwright test:prod
     - uses: actions/upload-artifact@v3
       if: always()
       with:
