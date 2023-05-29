@@ -21,7 +21,10 @@ yarn dev
 ```
 
 ### Running tests
-to running test see this repo [web compiled](https://github.com/muryp/web-compiled)
+to running test see this repo
+```bash
+yarn test:prod
+```
 
 ### Commit message
 ```bash
