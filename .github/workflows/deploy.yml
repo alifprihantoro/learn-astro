@@ -18,18 +18,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone Content
-        uses: actions/checkout@v3
-        with:
-          repository: muryp/content
-          path: src/
-      - name: checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
       - name: install
         run: yarn
+      - name: Clone Content
+        uses: actions/checkout@v3
+        with:
+          repository: muryp/content
+          path: src/
       - name: build
         run: yarn build
       - name: Upload Pages Artifact
