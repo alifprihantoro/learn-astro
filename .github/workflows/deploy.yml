@@ -23,6 +23,9 @@ jobs:
         with:
           repository: muryp/content
           path: src/
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: install
         run: npm ci
       - name: build
