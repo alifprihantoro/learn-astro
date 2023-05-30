@@ -20,7 +20,7 @@ import sitemap from '@astrojs/sitemap'
 // https://astro.build/config
 
 export default defineConfig({
-  site: 'https://alifprihantoro-learn-astro.github.io',
+  site: 'https://alifprihantoro.github.io/learn-astro',
   base: '/learn-astro',
   // outDir:'./test',
   integrations: [preact({
