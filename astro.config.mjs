@@ -21,7 +21,7 @@ import sitemap from '@astrojs/sitemap'
 
 export default defineConfig({
   site: 'https://alifprihantoro.github.io/learn-astro',
-  base: '/learn-astro',
+  // base: '/learn-astro',
   // outDir:'./test',
   integrations: [preact({
     compat: true,

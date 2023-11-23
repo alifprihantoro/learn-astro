@@ -11,7 +11,7 @@ const changeEl = async ({ NEXT_LINK, PREV_LINK, UNDO }: { NEXT_LINK: string, PRE
     ROOT_EL.innerHTML = CONTENT_HTML
     const { isGoHome } = regexRulesRoutes({ PREV_LINK, NEXT_LINK })
     if (isGoHome) {
-      !UNDO && window.history.replaceState({}, 'muryp', `/${NEXT_LINK}`)
+      !UNDO && window.history.pushState({}, 'muryp', `/${NEXT_LINK}`)
       !UNDO && window.open(NEXT_LINK, '_self')
     }
     await getLink('root')

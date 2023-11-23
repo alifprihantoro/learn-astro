@@ -2,8 +2,11 @@
 import Home from '@layouts/home'
 import Wrapper from '@components/Wraper.astro'
 import { INFO_WEB } from '@configs/home'
+const hel = '-primary'
+const tes = `btn btn${hel}`
 ---
 
 <Wrapper INFO_SEO={INFO_WEB}>
+  <div class={tes}>hellllo</div>
   <div id='root' set:html={Home()} />
 </Wrapper>

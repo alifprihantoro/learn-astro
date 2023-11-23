@@ -7,7 +7,7 @@ Language : English | [Indonesia](./README-ID.md)
 [![Latest Release](https://img.shields.io/github/release/alifprihantoro/learn-astro)](https://github.com/alifprihantoro/learn-astro/releases/latest)
 [![Last Commit](https://img.shields.io/github/last-commit/alifprihantoro/learn-astro)](https://github.com/alifprihantoro/learn-astro/commits/master)
 [![Open Issues](https://img.shields.io/github/issues/alifprihantoro/learn-astro)](https://github.com/alifprihantoro/learn-astro/issues)
-# MuryP Web
+# MuryP Web 3
 This project is an innovative web application that combines the power of Static Site Generation (SSG), Single-Page Application (SPA), and the Island Architecture to deliver a dynamic and performant user experience.
 
 ## Technologies and features used in this project include:
